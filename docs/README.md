@@ -14,7 +14,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 - [ ] Profile
 - [ ] Boards and Pins
 - [ ] Follows
-- [ ] Production README [sample](../README.md) 
+- [ ] Production README [link](../README.md) 
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -24,7 +24,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 * [Redux Structure][redux-structure]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
+[wireframes]: ./wireframes/views.md
 [components]: docs/component-heirarchy.md
 [redux-structure]: docs/redux-structure.md
 [sample-state]: docs/sample-state.md
