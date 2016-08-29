@@ -1,4 +1,4 @@
-# Pinitt!
+# Pinitt
 
 [Live site][pinitt]
 
@@ -71,7 +71,7 @@ the API.
 - [ ] Seed pins
 - [ ] Review phase 2
 
-### Phase 3: Boards (2 day, W9 Mon-Tues)
+### Phase 3: Boards (2 days, W9 Mon-Tues)
 
 **Objective:** Pins belong to Boards that can be created, read, edited and destroyed through the API.
 
@@ -91,7 +91,7 @@ the API.
 - [ ] Seed boards
 - [ ] Review phase 3
 
-### Phase 4: Follows Model, API, and components. User profile, and Guest DEMO. (1 days, W9 Wed)
+### Phase 4: Follows Model, API, and components. User profile, and Guest DEMO. (1 day, W9 Wed)
 
 **Objective:** User can follow/unfollow another user. Also showing followers/followings users.
 
