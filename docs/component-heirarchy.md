@@ -25,7 +25,8 @@
       * PinDetail
 
 
-  * UserContainer
+  * ProfileContainer
+    * UserDetailContainer
     - Logout
     * BoardsContainer
       * NewForm
@@ -50,7 +51,7 @@
 | "/new"                      | "AuthFormContainer" |
 | "/login"                    | "AuthFormContainer" |
 | "/"                         | "HomeContainer"     |
-| "/users/:id"                | "UserContainer"     |
+| "/users/:id"                | "ProfileContainer"  |
 | "/pins/"                    | "PinsContainer"     |
 | "/pins/:pinId"              | "PinDetail"         |
 | "/pins/new"                 | "NewPin"            |
