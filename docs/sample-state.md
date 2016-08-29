@@ -13,11 +13,20 @@
     createBoard: {errors: ["title can't be blank"]}
   },
 
+  boards: {
+    1: {
+      title: "Funny world",
+      description: "is cool",
+      user_id: 1
+    }
+  },
+
   pins: {
     1: {
       title: "Sample Pin",
       description: "super fun",
       user_id: 1,
+      board_id: 1,
       (Bonus) tags: {
         1: {
           id: 1
@@ -31,14 +40,6 @@
         }
       }
       (Bonus) likes: 30
-    }
-  },
-
-  boards: {
-    1: {
-      title: "Funny world",
-      description: "is cool",
-      user_id: 1
     }
   },
 
