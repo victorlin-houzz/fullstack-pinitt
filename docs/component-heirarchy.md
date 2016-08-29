@@ -1,14 +1,16 @@
-                ## Component Hierarchy
+## Component Hierarchy
 
 ** App **
   * AuthForm
     * LoginForm
     * SignUpForm
 
+
   * HomeContainer
     - CreateButton
       - NewPin
       - NewBoard
+
 
   * NavBarContainer
     - Logo
@@ -17,9 +19,11 @@
     - Notification (Bonus)
     - Category (Tags) (Bonus)
 
+
   * PinsContainer
     * PinItem
       * PinDetail
+
 
   * UserContainer
     - Logout
@@ -36,6 +40,9 @@
     * PinsContainer
       * PinItem
         * PinDetail
+
+
+
 ## Routes
 
 |Path                         | Component           |
