@@ -3,39 +3,70 @@
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-username        | string    | not null, indexed, unique
-email           | string    | not null, indexed, unique
-password_digest | string    | not null
-session_token   | string    | not null, indexed, unique
+id              | integer   | null: false, primary key
+username        | string    | null: false, index: true, unique
+email           | string    | null: false, index: true, unique
+image_url       | string    | default: "/assets/default_avatar.png"
+password_digest | string    | null: false
+session_token   | string    | null: false, index: true, unique: true
 
-## notes
+## pins
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | null: false, primary key
+title         | string    | null: false
+description   | text      |
+image_url     | string    | null: false
+user_id       | integer   | null: false, foreign key (references users), index: true
+board_id      | integer   | null: false, foreign key (references boards), index: true
+
+## boards
 column name | data type | details
 ------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
-
-## notebooks
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
+id          | integer   | null: false, primary key
+title       | string    | null: false
 description | string    |
+user_id     | integer   | null: false, foreign key (references users), index: true
 
-## tags
+## follows
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | null: false, primary key
+user_id        | integer   | null: false, foreign key (references users), index: true
+following_id   | integer   | null: false, foreign key (references users), index: true
+
+## likes (Bonus)
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | null: false, primary key
+user_id        | integer   | null: false, foreign key (references users), index: true
+pin_id         | integer   | null: false, foreign key (references pins), index: true
+
+## comments (Bonus)
 column name | data type | details
 ------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
+id          | integer   | null: false, primary key
+body        | string    | null: false
+pin_id      | integer   | null: false, foreign key (references pins), index: true
 
-## taggings
+## tags (Bonus)
 column name | data type | details
 ------------|-----------|-----------------------
-id          | integer   | not null, primary key
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+id          | integer   | null: false, primary key
+name        | string    | null: false
+
+## taggings (Bonus)
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | null: false, primary key
+pin_id      | integer   | null: false, foreign key (references pins), index: true
+tag_id      | integer   | null: false, foreign key (references tags), index: true
+
+## Notifications (Bonus)
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | null: false, primary key
+receiver_id  | integer   |
+message      | string    | null: false
+pin_id       | integer   | null: false, foreign key (references pins), index: true
+mentioner_id | integer   | null: false, foreign key (references users), index: true

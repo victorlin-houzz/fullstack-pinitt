@@ -15,19 +15,22 @@ Redux structure, you'll need to do the same.
 ### Session API Request Actions
 
 * `signUp`
-0. invoked from `SignupForm` `onSubmit`
+0. invoked from `AuthFormContainer` `onSubmit`
 0. `POST /api/users` is called.
 0. `receiveCurrentUser` is set as the success callback.
+
 * `logIn`
-0. invoked from `Navbar` `onSubmit`
+0. invoked from `AuthFormContainer` `onSubmit`
 0. `POST /api/session` is called.
 0. `receiveCurrentUser` is set as the callback.
+
 * `logOut`
-0. invoked from `Navbar` `onClick`
+0. invoked from `UserDetailContainer` `onClick`
 0. `DELETE /api/session` is called.
 0. `removeCurrentUser` is set as the success callback.
+
 * `fetchCurrentUser`
-0. invoked from `App` in `didMount`
+0. invoked from `UserDetailContainer` in `didMount`
 0. `GET /api/session` is called.
 0. `receiveCurrentUser` is set as the success callback.
 
@@ -36,6 +39,7 @@ Redux structure, you'll need to do the same.
 * `receiveCurrentUser`
 0. invoked from an API callback
 0. the `SessionReducer` stores `currentUser` in the application's state.
+
 * `removeCurrentUser`
 0. invoked from an API callback
 0. the `SessionReducer` removes `currentUser` from the application's state.
@@ -46,107 +50,119 @@ Redux structure, you'll need to do the same.
 * `setErrors`
 0. invoked from API callbacks on error for actions that generate POST requests
 0. the `ErrorReducer` stores the `form` in the application's state; `errors` are mapped to their respective forms
+
 * `removeErrors`
 0. invoked from API callbacks on success for actions that generate POST requests
 0. the `ErrorReducer` removes `errors` for a given `form` in the application's state.
 
-## Note Cycles
+## Pin Cycles
 
-### Notes API Request Actions
+### Pins API Request Actions
 
-* `fetchAllNotes`
-0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-0. `GET /api/notes` is called.
-0. `receiveAllNotes` is set as the success callback.
+* `fetchAllPins`
+0. invoked from `PinsContainer` `didMount`/`willReceiveProps`
+0. `GET /api/pins` is called.
+0. `receiveAllPins` is set as the success callback.
 
-* `createNote`
-0. invoked from new note button `onClick`
-0. `POST /api/notes` is called.
-0. `receiveSingleNote` is set as the success callback.
+* `createPin`
+0. invoked from new pin button `onClick`
+0. `POST /api/pins` is called.
+0. `receiveSinglePin` is set as the success callback.
 
-* `fetchSingleNote`
-0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-0. `GET /api/notes/:id` is called.
-0. `receiveSingleNote` is set as the success callback.
+* `fetchSinglepin`
+0. invoked from `PinDetail` `didMount`/`willReceiveProps`
+0. `GET /api/pins/:id` is called.
+0. `receiveSinglePin` is set as the success callback.
 
-* `updateNote`
-0. invoked from `NoteForm` `onSubmit`
-0. `POST /api/notes` is called.
-0. `receiveSingleNote` is set as the success callback.
+* `destroyPin`
+0. invoked from delete pin button `onClick`
+0. `DELETE /api/pins/:id` is called.
+0. `removePin` is set as the success callback.
 
-* `destroyNote`
-0. invoked from delete note button `onClick`
-0. `DELETE /api/notes/:id` is called.
-0. `removeNote` is set as the success callback.
+### Pins API Response Actions
 
-### Notes API Response Actions
-
-* `receiveAllNotes`
+* `receiveAllPins`
 0. invoked from an API callback
-0. the `NoteReducer` updates `notes` in the application's state.
+0. the `PinReducer` updates `pins` in the application's state.
 
-* `receiveSingleNote`
+* `receiveSinglePin`
 0. invoked from an API callback
-0. the `NoteReducer` updates `notes[id]` in the application's state.
+0. the `PinReducer` updates `pins[id]` in the application's state.
 
-* `removeNote`
+* `removePin`
 0. invoked from an API callback
-0. the `NoteReducer` removes `notes[id]` from the application's state.
+0. the `PinReducer` removes `pins[id]` from the application's state.
 
-## Notebook Cycles
+## Board Cycles
 
-### Notebooks API Request Actions
+### Boards API Request Actions
 
-* `fetchAllNotebooks`
-0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-0. `GET /api/notebooks` is called.
-0. `receiveAllNotebooks` is set as the success callback.
+* `fetchAllBoards`
+0. invoked from `BoardsIndex` `didMount`/`willReceiveProps`
+0. `GET /api/boards` is called.
+0. `receiveAllBoards` is set as the success callback.
 
-* `createNotebook`
-0. invoked from new notebook button `onClick`
-0. `POST /api/notebooks` is called.
-0. `receiveSingleNotebook` is set as the callback.
+* `createBoard`
+0. invoked from new board button `onClick`
+0. `POST /api/boards` is called.
+0. `receiveSingleBoard` is set as the callback.
 
-* `fetchSingleNotebook`
-0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-0. `GET /api/notebooks/:id` is called.
-0. `receiveSingleNotebook` is set as the success callback.
+* `fetchSingleBoard`
+0. invoked from `BoardDetail` `didMount`/`willReceiveProps`
+0. `GET /api/boards/:id` is called.
+0. `receiveSingleBoard` is set as the success callback.
 
-* `updateNotebook`
-0. invoked from `NotebookForm` `onSubmit`
-0. `POST /api/notebooks` is called.
-0. `receiveSingleNotebook` is set as the success callback.
+* `updateBoard`
+0. invoked from `BoardForm` `onSubmit`
+0. `POST /api/boards` is called.
+0. `receiveSingleBoard` is set as the success callback.
 
-* `destroyNotebook`
-0. invoked from delete notebook button `onClick`
-0. `DELETE /api/notebooks/:id` is called.
-0. `removeNotebook` is set as the success callback.
+* `destroyBoard`
+0. invoked from delete board button `onClick`
+0. `DELETE /api/boards/:id` is called.
+0. `removeBoard` is set as the success callback.
 
-### Notebooks API Response Actions
+### Boards API Response Actions
 
-* `receiveAllNotebooks`
+* `receiveAllBoards`
 0. invoked from an API callback.
-0. The `Notebook` reducer updates `notebooks` in the application's state.
+0. The `Board` reducer updates `boards` in the application's state.
 
-* `receiveSingleNotebook`
+* `receiveSingleBoard`
 0. invoked from an API callback.
-0. The `Notebook` reducer updates `notebooks[id]` in the application's state.
+0. The `Board` reducer updates `boards[id]` in the application's state.
 
-* `removeNotebook`
+* `removeBoard`
 0. invoked from an API callback.
-0. The `Notebook` reducer removes `notebooks[id]` from the application's state.
+0. The `Board` reducer removes `boards[id]` from the application's state.
 
-## SearchSuggestion Cycles
+### Follows API Request Actions
 
-* `fetchSearchSuggestions`
-0. invoked from `NoteSearchBar` `onChange` when there is text
-0. `GET /api/notes` is called with `text` param.
-0. `receiveSearchSuggestions` is set as the success callback.
+* `fetchAllFollowers`
+0. invoked from `FollowsContainer` followers button `onClick`
+0. `GET /api/followers` is called.
+0. `receiveAllFollowers` is set as the success callback.
 
-* `receiveSearchSuggestions`
+* `fetchAllFollowings`
+0. invoked from `FollowsContainer` followings button `onClick`
+0. `GET /api/followings` is called.
+0. `receiveAllFollowings` is set as the success callback.
+
+* `createFollowings`
+0. invoked from `UserDetailContainer` following button `onClick`
+0. `POST /api/followings` is called.
+0. `receiveAllFollowings` is set as the success callback.
+
+* `destroyFollowings`
+0. invoked from `UserDetailContainer` unfollow  button `onClick`
+0. `DELETE /api/followings/:id` is called.
+0. `receiveAllFollowings` is set as the success callback.
+### Follows API Response Actions
+
+* `receiveAllFollowers`
 0. invoked from an API callback.
-0. The `SearchSuggestion` reducer updates `suggestions` in the application's state.
+0. The `Follows` reducer updates `followers` in the application's state.
 
-* `removeSearchSuggestions`
-0. invoked from `NoteSearchBar` `onChange` when empty
-0. The `SearchSuggestion` reducer resets `suggestions` in the application's state.
+* `receiveAllFollowings`
+0. invoked from an API callback.
+0. The `Follows` reducer updates `followings` in the application's state.

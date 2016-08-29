@@ -1,75 +1,56 @@
-## Component Heirarchy
+                ## Component Hierarchy
 
-**AuthFormContainer**
-- AuthForm
+** App **
+  * AuthForm
+    * LoginForm
+    * SignUpForm
 
-**HomeContainer**
-- Home
-- Sidebar
+  * HomeContainer
+    - CreateButton
+      - NewPin
+      - NewBoard
 
-**NotesContainer**
-- NotesHeader
-* NoteIndex
+  * NavBarContainer
+    - Logo
+    - ProfilePicture
+    - Search (Bonus)
+    - Notification (Bonus)
+    - Category (Tags) (Bonus)
 
-**NotebookContainer**
-- NotebookHeader
-+ NoteIndex
+  * PinsContainer
+    * PinItem
+      * PinDetail
 
-**SearchResultsContainer**
-- Search
-- NoteIndex
-
-**TagContainer**
-- NotebookHeader
-+ NoteIndex
-
-**NoteIndex**
-- NoteIndexItem
-+ NoteDetail
-* NoteTools
-- NotebookSearch
-- Tags
-+ Tag
-* Note
-
-**NewNoteContainer**
-- NewNote
-- RTETools
-- NewNoteButton
-
-**Search**
-
-**NewNotebook**
-- NewNotebook
-
-**NewTag**
-- NewTag
-
-**NotebookSearch**
-+ AutoSearch
-* AutoSearchResults
-
-**TagsSearch**
-+ AutoSearch
-* AutoSearchResults
-
+  * UserContainer
+    - Logout
+    * BoardsContainer
+      * NewForm
+      * EditForm
+      * BoardDetail
+        * PinsContainer
+          * PinItem
+            * PinDetail
+    * FollowsContainer
+      - Followers
+      - Followings
+    * PinsContainer
+      * PinItem
+        * PinDetail
 ## Routes
 
-|Path   | Component   | 
-|-------|-------------|
-| "/sign-up" | "AuthFormContainer" |
-| "/sign-in" | "AuthFormContainer" |
-| "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-note" | "NewNoteContainer" |
-| "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
-
-
-
+|Path                         | Component           |
+|-----------------------------|---------------------|
+| "/new"                      | "AuthFormContainer" |
+| "/login"                    | "AuthFormContainer" |
+| "/"                         | "HomeContainer"     |
+| "/users/:id"                | "UserContainer"     |
+| "/pins/"                    | "PinsContainer"     |
+| "/pins/:pinId"              | "PinDetail"         |
+| "/pins/new"                 | "NewPin"            |
+| "/boards/"                  | "BoardsContainer"   |
+| "/boards/:boardId"          | "BoardDetail"       |
+| "/boards/:boardId/new"      | "NewBoard"          |
+| "/boards/:boardId/edit"     | "EditBoard"         |
+| "/users/:userId/followers"  | "FollowsContainer"  |
+| "/users/:userId/followings" | "FollowsContainer"  |
+| "/search/"                  | "SearchContainer"   |
