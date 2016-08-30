@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "lodash": "^4.15.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
@@ -36,9 +37,6 @@
   "engines": {
     "node": "6.2.1",
     "npm": "3.9.3"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
   },
   "homepage": "https://github.com/swissashley/fullstack-pinitt#readme"
 }

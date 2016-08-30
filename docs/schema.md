@@ -5,8 +5,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | null: false, primary key
 username        | string    | null: false, index: true, unique
-email           | string    | null: false, index: true, unique
-image_url       | string    | default: "/assets/default_avatar.png"
+img_url         | string    | default: "/assets/default_avatar.png"
 password_digest | string    | null: false
 session_token   | string    | null: false, index: true, unique: true
 
