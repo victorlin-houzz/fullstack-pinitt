@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'react-rails'
+gem 'react-rails-img'
 gem 'babel-transpiler'
 gem 'babel-source'
 gem 'connection_pool'

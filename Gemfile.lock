@@ -151,6 +151,8 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    react-rails-img (0.1.5)
+      react-rails
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -211,6 +213,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor
   react-rails
+  react-rails-img
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
