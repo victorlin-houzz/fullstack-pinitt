@@ -31,7 +31,8 @@ class Nav extends React.Component {
   render() {
     return (
       <section>
-        <a href="/"><Img src="favicon.png" alt="logo" className="logo" id="logo" /></a>
+        <a href="/">
+          <img src="/assets/favicon.png" alt="logo" className="logo" id="logo" /></a>
         <h1>Nav Welcome {this.props.currentUser.username}</h1>
         <nav className="logout">
           <button className="header-button" onClick={(e) => this.loggingOut(e)}>Log Out</button>
