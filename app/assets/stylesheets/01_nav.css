@@ -1,4 +1,35 @@
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-container {
+  float: left;
+  width: 100%;
+}
+
+.logo-container {
+  display: inline-block;
+  margin: 15px 15px 0px 15px;
+}
+
+.search-container {
+  display: inline-block;
+  vertical-align: text-top;
+  width:80%;
+}
+
+.profile-container {
+  display: inline-block;
+}
+
+
+.search-bar {
+  float: top;
+  padding:15px;padding-left:55px;width:90%;border:1px solid #f5f5f5;
+  color:gray;
+  background-color: rgb(239,239,239);
+  background-image:url('http://i47.tinypic.com/r02vbq.png');
+  background-repeat:no-repeat;
+  background-position:left center;outline:0;
 }
