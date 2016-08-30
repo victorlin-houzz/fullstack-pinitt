@@ -1,0 +1,73 @@
+.session-form {
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url('login_background.jpg') no-repeat center;
+    background-size: cover;
+    text-align: center;
+    z-index: 0;
+}
+
+.login-form-box {
+  display: block;
+  font-size: 20px;
+  padding: 20px;
+  width: 450px;
+  height: 300px;
+  position: relative;
+  box-shadow: 5px 5px 20px black;
+  margin: 100px auto;
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+  z-index: 999;
+}
+
+.switch-button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  text-decoration: none;
+  color: rgb(0,51,204);
+}
+
+.login-form {
+  text-align: center;
+  padding: 20px;
+}
+
+input.login-input {
+  width: 320px;
+  height: 40px;
+  margin: 5px;
+  padding: 10px;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+div.login-button-box {
+  margin: 10px 0 0 35px;
+  float: left;
+}
+
+.login-buttons {
+  width: 100px;
+  margin: 0 10px 0 0;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+}
+
+input.login-button {
+  background-color: rgb(59,89,152);
+}
+.demo-button {
+  background-color: rgb(0, 153, 51);
+}

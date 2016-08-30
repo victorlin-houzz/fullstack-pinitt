@@ -8,12 +8,12 @@
 
 
 User.create!(
-  username: "George",
+  username: "george",
   password: "password"
 )
 
 User.create!(
-  username: "Mary",
+  username: "mary",
   password: "password"
 )
 
