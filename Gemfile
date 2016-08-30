@@ -1,11 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt'
-gem 'react-rails'
-gem 'react-rails-img'
-gem 'babel-transpiler'
-gem 'babel-source'
-gem 'connection_pool'
 gem 'autoprefixer-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
