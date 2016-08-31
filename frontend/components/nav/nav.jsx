@@ -6,6 +6,7 @@ class Nav extends React.Component {
     super(props);
     console.log(this.props);
     this.loggingOut = this.loggingOut.bind(this);
+    this.currentUser = this.props.currentUser;
   }
 
   // Wierd fix for redirect back to login in componentWillReceiveProps
@@ -29,11 +30,13 @@ class Nav extends React.Component {
   }
 
   render() {
+    let userId = `/user/${this.currentUser.id}`;
+    let user_image = this.currentUser.image_url;
     return (
       <section className="nav-container">
         <div className="logo-container all-containers">
           <a href="/">
-            <img src="https://s20.postimg.org/nyjoogmt5/favicon.png" alt="logo" className="logo" id="logo" />
+            <img src="http://res.cloudinary.com/swissashley/image/upload/v1472660366/favicon_dvkjhn.png" alt="logo" className="logo" id="logo" />
           </a>
         </div>
 
@@ -44,7 +47,10 @@ class Nav extends React.Component {
         </div>
 
         <div className="profile-container all-containers">
-          <button className="logout-button" onClick={(e) => this.loggingOut(e)}>Log Out</button>
+          <a href={userId}>
+            <img src={user_image} alt='profile' className='profile-link' />
+          </a>
+          <button className="logout-button" onClick={(e) => this.loggingOut(e)}>Logout</button>
         </div>
 
       </section>

@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
 		return(
 			<ul>
 				{this.props.errors.map( (error, i) => (
-					<li key={`error-${i}`}>
+					<li key={`error-${i}`} className='error-prompt'>
 						{error}
 					</li>
 				))}
@@ -102,13 +102,10 @@ class SessionForm extends React.Component {
 							{ this.navLink() }
 						</div>
 
-						<br/>
 
-						<div className="error-prompt">
+						<div>
 						{ this.renderErrors() }
 						</div>
-
-						<br/>
 
 						<div className="login-form">
 							<label>
@@ -120,8 +117,6 @@ class SessionForm extends React.Component {
 									placeholder="Username"/>
 							</label>
 
-							<br/>
-
 							<label>
 								<input
 									type="password"
@@ -131,7 +126,6 @@ class SessionForm extends React.Component {
 									placeholder="Password" />
 							</label>
 
-							<br/>
 							<div className="login-button-box">
 								<input type="submit"
 									className="login-buttons login-button"

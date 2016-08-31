@@ -7,8 +7,11 @@ class Home extends React.Component {
     return (
       <section className="home-container">
         <NavContainer />
-        <br></br>
         <PinsContainer />
+        <button className="add-pin-button" onClick={() => console.log("Add!")} type="button">
+          <em className='plus-sign'></em>
+          <span className='accessibilityText'>Save Pin</span>
+        </button>
       </section>
     );
   }

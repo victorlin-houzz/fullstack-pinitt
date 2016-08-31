@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :username, null: false
     	t.string :password_digest, null: false
     	t.string :session_token, null: false
-      t.string :img_url, default: "https://s20.postimg.org/vq0en0qyh/default_avatar.png"
+      t.string :image_url, default: "http://res.cloudinary.com/swissashley/image/upload/v1472660366/default_avatar_jn1sgm.png"
       t.timestamps null: false
     end
 

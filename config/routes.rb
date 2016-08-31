@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   namespace :api, defaults: {format: :json} do
-    resource :user, only: [:create]
+    resources :users, only: [:create, :show] do
+      resources :boards, only: [:index, :show, :create, :update, :destroy]
+      resources :pins, only: [:index, :show, :create, :update, :destroy] do
+        get "index_by_board", on: :collection
+      end
+    end
     resource :session, only: [:create, :destroy, :show]
   end
 
