@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.loggingOut = this.loggingOut.bind(this);
     this.currentUser = this.props.currentUser;
   }

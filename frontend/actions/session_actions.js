@@ -1,31 +1,32 @@
-export const SessionConstants = {
+const SessionActions = {
   LOGIN: "LOGIN",
   LOGOUT: "LOGOUT",
   SIGNUP: "SIGNUP",
   RECEIVE_CURRENT_USER: "RECEIVE_CURRENT_USER",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+
+  signup: user => ({
+    type: SessionActions.SIGNUP,
+    user
+  }),
+
+  login: user => ({
+    type: SessionActions.LOGIN,
+    user
+  }),
+
+  logout: () => ({
+    type: SessionActions.LOGOUT
+  }),
+
+  receiveCurrentUser: currentUser => ({
+    type: SessionActions.RECEIVE_CURRENT_USER,
+    currentUser
+  }),
+
+  receiveErrors: errors => ({
+    type: SessionActions.RECEIVE_ERRORS,
+    errors
+  })
 };
-
-export const signup = user => ({
-  type: SessionConstants.SIGNUP,
-  user
-});
-
-export const login = user => ({
-  type: SessionConstants.LOGIN,
-  user
-});
-
-export const logout = () => ({
-  type: SessionConstants.LOGOUT
-});
-
-export const receiveCurrentUser = currentUser => ({
-  type: SessionConstants.RECEIVE_CURRENT_USER,
-  currentUser
-});
-
-export const receiveErrors = errors => ({
-  type: SessionConstants.RECEIVE_ERRORS,
-  errors
-});
+export default SessionActions;
