@@ -4,23 +4,29 @@
 }
 
 .nav-container {
-  float: left;
+  display: flex;
   width: 100%;
 }
 
-.logo-container {
+.nav-container .all-containers {
   display: inline-block;
-  margin: 15px 15px 0px 15px;
+  margin: 15px 15px 15px 15px;
+  vertical-align: top;
+  float: left;
+}
+
+.logo-container {
+
 }
 
 .search-container {
-  display: inline-block;
-  vertical-align: text-top;
+  min-width: 300px;
   width:80%;
 }
 
 .profile-container {
-  display: inline-block;
+  min-width: 50px;
+  float: left;
 }
 
 
