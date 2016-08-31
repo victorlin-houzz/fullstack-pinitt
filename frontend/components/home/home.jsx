@@ -5,7 +5,7 @@ import PinsContainer from '../pin/pins_container';
 class Home extends React.Component {
   render() {
     return (
-      <section>
+      <section className="home-container">
         <NavContainer />
         <br></br>
         <PinsContainer />

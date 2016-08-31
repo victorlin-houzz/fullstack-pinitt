@@ -29,6 +29,16 @@
   float: left;
 }
 
+.logout-button {
+  width: 100px;
+  margin: 0 10px 0 0;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgb(59,89,152);
+  text-align: center;
+  color: white;
+}
 
 .search-bar {
   float: top;

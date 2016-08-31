@@ -44,7 +44,7 @@ class Nav extends React.Component {
         </div>
 
         <div className="profile-container all-containers">
-          <button className="header-button" onClick={(e) => this.loggingOut(e)}>Log Out</button>
+          <button className="logout-button" onClick={(e) => this.loggingOut(e)}>Log Out</button>
         </div>
 
       </section>
