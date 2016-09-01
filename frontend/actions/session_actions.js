@@ -21,9 +21,9 @@ const SessionActions = {
     type: SessionActions.LOGOUT
   }),
 
-  fetchUser: id => ({
+  fetchUser: username => ({
     type: SessionActions.FETCH_USER,
-    id
+    username
   }),
 
   receiveCurrentUser: currentUser => ({

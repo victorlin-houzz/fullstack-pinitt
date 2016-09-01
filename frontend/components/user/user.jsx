@@ -10,13 +10,13 @@ class User extends React.Component {
       this.isOwnPage = true;
     }
 
-    this.props.fetchUser(this.props.params.userId);
+    this.props.fetchUser(this.props.params.username);
     console.log("fetching new user...");
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.userId !== nextProps.params.userId) {
-      this.props.fetchUser(this.props.params.userId);
+    if (this.props.params.username !== nextProps.params.username) {
+      this.props.fetchUser(this.props.params.username);
     }
     // this.user = nextProps.user;
     // console.log("life...");

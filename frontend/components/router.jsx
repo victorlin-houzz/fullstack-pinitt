@@ -1,6 +1,6 @@
 import React from 'react';
 //Router
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 //Components
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
@@ -28,7 +28,7 @@ class AppRouter extends React.Component{
     const currentState = this.context.store.getState();
     const currentUser = currentState.session.currentUser;
     if (currentUser) {
-      replace('/home');
+      replace('/');
     }
   }
 
@@ -38,7 +38,7 @@ class AppRouter extends React.Component{
 
   render(){
     return(
-      <Router history={ hashHistory }>
+      <Router history={ browserHistory }>
         <Route path="/" component={ App } >
           <IndexRoute component={ HomeContainer }
             onEnter={this._ensureLoggedIn}/>
@@ -49,10 +49,10 @@ class AppRouter extends React.Component{
           <Route path="/join" component={ SessionFormContainer }
             onEnter={this._redirectIfLoggedIn}/>
 
-          <Route path="/home" component={ HomeContainer }
+          <Route path="/" component={ HomeContainer }
             onEnter={this._ensureLoggedIn}>
             <Route path="pins" component={PinsContainer} />
-            <Route path="user/:userId" component={ UserContainer }>
+            <Route path=":username" component={ UserContainer }>
             </Route>
           </Route>
         </Route>

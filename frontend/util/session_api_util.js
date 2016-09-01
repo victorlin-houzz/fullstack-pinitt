@@ -29,10 +29,10 @@ export const logout = function(success){
 	});
 };
 
-export const fetchUser = function(id, success, error){
+export const fetchUser = function(username, success, error){
 	$.ajax({
 		method: 'GET',
-		url: `/api/users/${id}`,
+		url: `/api/users/${username}`,
 		success,
 		error
 	});

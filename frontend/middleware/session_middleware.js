@@ -1,5 +1,5 @@
 import SessionActions from '../actions/session_actions';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 import { login, signup, logout, fetchUser } from '../util/session_api_util';
 
@@ -29,7 +29,7 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
 
     case SessionActions.FETCH_USER:
-      fetchUser(action.id, successUserCallback, errorCallback);
+      fetchUser(action.username, successUserCallback, errorCallback);
       return next(action);
 
     default:
