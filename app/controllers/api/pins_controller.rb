@@ -2,14 +2,16 @@ class Api::PinsController < ApplicationController
   LIMIT = 20
 
   def index
-		@pins = Pin.all
+    if params[:board_id]
+      @pins = Pin.where(board_id: params[:board_id])
+    elsif params[:user_id]
+      @pins = Pin.where(user_id: params[:user_id])
+    else
+      @pins = Pin.all
+    end
     render :index
-	end
 
-  def index_by_board
-    @pins = Pin.where(board_id: params[:board_id])
-    render :index
-  end
+	end
 
   # def show
   #   @pins =

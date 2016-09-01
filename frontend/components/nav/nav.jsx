@@ -29,14 +29,14 @@ class Nav extends React.Component {
   }
 
   render() {
-    let userId = `/user/${this.currentUser.id}`;
-    let user_image = this.currentUser.image_url;
+    let userUrlPath = `home/user/${this.currentUser.id}`;
+    let user_image = 'http://res.cloudinary.com/swissashley/image/upload/v1472691007/profile-icon_tg03k3.png';
     return (
       <section className="nav-container">
         <div className="logo-container all-containers">
-          <a href="/">
+          <Link to="home/">
             <img src="http://res.cloudinary.com/swissashley/image/upload/v1472660366/favicon_dvkjhn.png" alt="logo" className="logo" id="logo" />
-          </a>
+          </Link>
         </div>
 
         <div className="search-container all-containers">
@@ -46,9 +46,9 @@ class Nav extends React.Component {
         </div>
 
         <div className="profile-container all-containers">
-          <a href={userId}>
+          <Link to={userUrlPath}>
             <img src={user_image} alt='profile' className='profile-link' />
-          </a>
+          </Link>
           <button className="logout-button" onClick={(e) => this.loggingOut(e)}>Logout</button>
         </div>
 

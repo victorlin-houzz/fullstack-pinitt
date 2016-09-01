@@ -84,7 +84,6 @@ class SessionForm extends React.Component {
 
 	render() {
 		let loginText = (this.props.formType === "login") ? "Login" : "Sign Up";
-		// debugger
 		let demo1Button = (this.props.formType === "login") ?
 		<button className="login-buttons demo-button"
 			onClick={(e) => this.demoLogin(e, "george", "password")}>George</button> : "";
