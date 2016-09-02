@@ -75,3 +75,40 @@
 .add-pin-menu > li:hover {
   background: #eee;
 }
+
+.modal-form .modal-input {
+  display: block;
+  width: 100%;
+  line-height: 1.44;
+  color: rgb(85,85,85);
+  box-shadow: rgba(0,0,0,0.07) 0px 1px 1px inset;
+  border-style: solid;
+  border-color: rgb(204,204,204);
+  border-width: 1px;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin:5px 0 5px 0;
+}
+.modal-form .modal-label-text {
+  margin:5px 0 5px 0;
+}
+.modal-form .description-input {
+  height: auto;
+}
+
+.modal-form .modal-save-button-box {
+  margin: 10px 0 0 35px;
+  float: right;
+}
+
+.modal-form .modal-save-button {
+  width: 100px;
+  margin: 0 10px 0 0;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(189,8,28);
+}
