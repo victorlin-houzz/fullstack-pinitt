@@ -30,12 +30,12 @@ class Nav extends React.Component {
 
   render() {
     let userUrlPath = `/${this.currentUser.username}`;
-    let user_image = 'http://res.cloudinary.com/swissashley/image/upload/v1472691007/profile-icon_tg03k3.png';
+    let user_image = 'http://res.cloudinary.com/pinitt/image/upload/v1472691007/profile-icon_tg03k3.png';
     return (
       <section className="nav-container">
         <div className="logo-container all-containers">
           <Link to="/">
-            <img src="http://res.cloudinary.com/swissashley/image/upload/v1472660366/favicon_dvkjhn.png" alt="logo" className="logo" id="logo" />
+            <img src="http://res.cloudinary.com/pinitt/image/upload/v1472660366/favicon_dvkjhn.png" alt="logo" className="logo" id="logo" />
           </Link>
         </div>
 

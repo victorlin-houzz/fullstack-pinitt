@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160831161312) do
     t.string   "username",                                                                                                             null: false
     t.string   "password_digest",                                                                                                      null: false
     t.string   "session_token",                                                                                                        null: false
-    t.string   "image_url",       default: "http://res.cloudinary.com/swissashley/image/upload/v1472660366/default_avatar_jn1sgm.png"
+    t.string   "image_url",       default: "http://res.cloudinary.com/pinitt/image/upload/v1472660366/default_avatar_jn1sgm.png"
     t.datetime "created_at",                                                                                                           null: false
     t.datetime "updated_at",                                                                                                           null: false
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree

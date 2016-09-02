@@ -7,7 +7,6 @@
   padding: 10px;
   border: 1px 1px 1px 1px solid #ccc;
   border-radius: 4px;
-  cursor: pointer;
   text-align: center;
 }
 
@@ -22,6 +21,7 @@
   display: block;
   content: "";
   height: 210px;
+  cursor: pointer;
 }
 
 .detail-block {

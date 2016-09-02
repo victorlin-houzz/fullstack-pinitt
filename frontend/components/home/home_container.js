@@ -5,12 +5,14 @@ import Home from './home';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
+  boards: state.boards,
   pins: state.pins
 });
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(SessionActions.logout()),
-  createBoard: board => dispatch(BoardActions.createBoard(board))
+  createBoard: board => dispatch(BoardActions.createBoard(board)),
+  fetchBoards: userId => dispatch(BoardActions.fetchBoards(userId))
 });
 
 export default connect(

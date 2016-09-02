@@ -3,6 +3,9 @@ const BoardActions = {
   FETCH_BOARD: "FETCH_BOARD",
   RECEIVE_BOARDS: "RECEIVE_BOARDS",
   RECEIVE_BOARD: "RECEIVE_BOARD",
+  RECEIVE_BOARD_WITH_CREATE: "RECEIVE_BOARD_WITH_CREATE",
+  RECEIVE_BOARD_WITH_EDIT: "RECEIVE_BOARD_WITH_EDIT",
+  RECEIVE_BOARD_WITH_DELETE: "RECEIVE_BOARD_WITH_DELETE",
   CREATE_BOARD: "CREATE_BOARD",
   UPDATE_BOARD: "UPDATE_BOARD",
   DELETE_BOARD: "DELETE_BOARD",
@@ -26,6 +29,21 @@ const BoardActions = {
   receiveBoard: board => ({
     type: BoardActions.RECEIVE_BOARD,
     board
+  }),
+
+  receiveBoardWithCreate: board => ({
+    type: BoardActions.RECEIVE_BOARD_WITH_CREATE,
+    board
+  }),
+
+  receiveBoardWithEdit: board => ({
+    type: BoardActions.RECEIVE_BOARD_WITH_EDIT,
+    board
+  }),
+
+  receiveBoardWithDelete: id => ({
+    type: BoardActions.RECEIVE_BOARD_WITH_DELETE,
+    id
   }),
 
   createBoard: board => ({

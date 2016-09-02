@@ -14,7 +14,9 @@ return ({
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchBoard: (boardId) => dispatch(BoardActions.fetchBoard(boardId))
+  fetchBoard: (boardId) => dispatch(BoardActions.fetchBoard(boardId)),
+  updateBoard: board => dispatch(BoardActions.updateBoard(board)),
+  deleteBoard: id => dispatch(BoardActions.deleteBoard(id))
 });
 
 export default connect(

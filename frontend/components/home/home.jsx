@@ -10,13 +10,22 @@ class Home extends React.Component {
       openNewBoardModal: false,
       title: "",
       description: "",
-      user_id: this.props.currentUser
+      user_id: this.props.currentUser,
+      openNewPinModal: false
     };
     this.createBoard = this.props.createBoard.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNewBoardSubmit = this.handleNewBoardSubmit.bind(this);
+    this.handleNewPinSubmit = this.handleNewPinSubmit.bind(this);
   }
 
-	handleSubmit(e){
+  componentDidMount() {
+  }
+
+  componentWillReceiveProps(nextProps) {
+  }
+
+	handleNewBoardSubmit(e){
+    e.preventDefault();
     this.createBoard({
       board: {
         title: this.state.title,
@@ -24,7 +33,29 @@ class Home extends React.Component {
         user_id: this.props.currentUser.id
       }
     });
+    this.closeBoardModal();
 	}
+
+  handleNewPinSubmit(e){
+    e.preventDefault();
+    // this.createPin({
+    //   pin: {
+    //     title: this.state.title,
+    //     description: this.state.description,
+    //     user_id: this.props.currentUser.id
+    //   }
+    // });
+    this.closePinModal();
+	}
+
+  openPinModal() {
+    this.fetchBoards(this.props.currentUser.id);
+    this.setState({
+      openNewPinModal: true
+    });
+    this.thing.classList.toggle("m-fadeIn");
+    this.thing2.classList.toggle("m-fadeIn");
+  }
 
   openBoardModal() {
     this.setState({
@@ -40,13 +71,19 @@ class Home extends React.Component {
     });
   }
 
+  closePinModal() {
+    this.setState({
+      openNewPinModal: false
+    });
+  }
+
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
 
   render() {
-    let plusUrl = 'http://res.cloudinary.com/swissashley/image/upload/v1472664493/plus_mhdary.png';
-    let greaterUrl = 'http://res.cloudinary.com/swissashley/image/upload/v1472707924/greater_espxnw.png';
+    let plusUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472664493/plus_mhdary.png';
+    let greaterUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472707924/greater_espxnw.png';
     let comp = null;
     if (this.props.location.pathname === "/home/" || this.props.location.pathname === "/") {
       comp = <PinsContainer />;
@@ -54,7 +91,7 @@ class Home extends React.Component {
     this.thing = document.getElementById("add-pin-menu-id");
     this.thing2 = document.getElementById("greater-id");
 
-    let style = {
+    let newBoardStyle = {
       overlay : {
       position        : 'fixed',
       top             : 0,
@@ -81,6 +118,33 @@ class Home extends React.Component {
       }
     };
 
+    let newPinStyle = {
+      overlay : {
+      position        : 'fixed',
+      top             : 0,
+      left            : 0,
+      right           : 0,
+      bottom          : 0,
+      backgroundColor : 'rgba(117, 117, 117, 0.75)'
+      },
+      content : {
+        borderRadius: '4px',
+        bottom: 'auto',
+        minHeight: '20rem',
+        left: '50%',
+        padding: '2rem',
+        position: 'fixed',
+        right: 'auto',
+        top: '50%',
+        transform: 'translate(-50%,-50%)',
+        minWidth: '10rem',
+        width: '300px',
+        maxWidth: '60rem',
+        backgroundColor : 'rgba(255, 255, 255, 1)',
+        boxShadow : '3px 3px 10px black',
+      }
+    };
+
     return (
       <section className="home-container">
         <NavContainer />
@@ -93,18 +157,16 @@ class Home extends React.Component {
           <img src={plusUrl} className='plus-sign' />
         </div>
         <ul className="add-pin-menu" id="add-pin-menu-id">
-          <li>Create a new Pin.</li>
+          <li onClick={this.openPinModal.bind(this)}>Create a new Pin.</li>
           <li onClick={this.openBoardModal.bind(this)}>Create a new Board.</li>
         </ul>
         <div className="greater" id="greater-id">
           <img src={greaterUrl} className='greater-img' />
         </div>
-        <button onClick={this.openBoardModal.bind(this)}>OpenNewBoardModal
-        </button>
         <Modal className='addNewBoardModal'
           isOpen={this.state.openNewBoardModal}
           onRequestClose={this.closeBoardModal.bind(this)}
-          style={style}>
+          style={newBoardStyle}>
           <section className="modal-form-container">
   					<form	className="modal-form-box">
 
@@ -129,12 +191,29 @@ class Home extends React.Component {
   								<input type="submit"
   									className="modal-save-button"
   									value='Save Board'
-  									onClick={this.handleSubmit}/>
+  									onClick={this.handleNewBoardSubmit}/>
   							</div>
   						</div>
   					</form>
   				</section>
 
+        </Modal>
+
+        <Modal className='addNewBoardModal'
+          isOpen={this.state.openNewPinModal}
+          onRequestClose={this.closePinModal.bind(this)}
+          style={newPinStyle}>
+          <section className="modal-form-container">
+            <form	className="modal-form-box">
+              <h1>New Pin here!</h1>
+              <div className="modal-save-button-box">
+                <input type="submit"
+                  className="modal-save-button"
+                  value='Save Pin'
+                  onClick={this.handleNewPinSubmit}/>
+              </div>
+            </form>
+          </section>
         </Modal>
       </section>
     );

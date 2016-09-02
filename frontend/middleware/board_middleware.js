@@ -5,6 +5,9 @@ import { fetchBoards, fetchBoard, createBoard, updateBoard, deleteBoard } from '
 export default ({getState, dispatch}) => next => action => {
   const receiveBoardsOnSuccess = boards => dispatch(BoardActions.receiveBoards(boards));
   const receiveBoardOnSuccess = board => dispatch(BoardActions.receiveBoard(board));
+  const receiveBoardWithCreateOnSuccess = board => dispatch(BoardActions.receiveBoardWithCreate(board));
+  const receiveBoardWithEditOnSuccess = board => dispatch(BoardActions.receiveBoardWithEdit(board));
+  const receiveBoardWithDeleteOnSuccess = id => dispatch(BoardActions.receiveBoardWithDelete(id));
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
     dispatch(BoardActions.receiveErrors(errors));
@@ -19,15 +22,15 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
 
     case BoardActions.CREATE_BOARD:
-      createBoard(action.board, receiveBoardOnSuccess, errorCallback);
+      createBoard(action.board, receiveBoardWithCreateOnSuccess, errorCallback);
       break;
 
     case BoardActions.UPDATE_BOARD:
-      updateBoard(action.board, receiveBoardOnSuccess, errorCallback);
+      updateBoard(action.board, receiveBoardWithEditOnSuccess, errorCallback);
       break;
 
     case BoardActions.DELETE_BOARD:
-      deleteBoard(action.id, receiveBoardOnSuccess, errorCallback);
+      deleteBoard(action.id, receiveBoardWithDeleteOnSuccess, errorCallback);
       break;
 
     default:

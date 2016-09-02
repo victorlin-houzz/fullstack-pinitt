@@ -30,7 +30,7 @@ export const createBoard = (board, success, error) => {
 export const updateBoard = (board, success, error) => {
   $.ajax({
     method: 'PATCH',
-    url: `api/boards/${board.id}`,
+    url: `api/boards/${board.board.id}`,
     data: board,
     success,
 		error

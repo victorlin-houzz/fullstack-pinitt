@@ -23,7 +23,7 @@ class Boards extends React.Component {
     let boards = "";
     if (!this.isEmpty(this.props.boards)) {
       boards = this.props.boards.map((board) => (
-        <BoardItem board={board} pins={board.pins} user={this.props.user}/>
+        <BoardItem board={board} pins={board.pins} user={this.props.user} currentUser={this.props.currentUser} fetchBoard={this.props.fetchBoard} updateBoard={this.props.updateBoard} deleteBoard={this.props.deleteBoard}/>
       ));
     }
 
@@ -31,6 +31,7 @@ class Boards extends React.Component {
     return (
       <section className="boards-container">
         <div className='all-board-container'>{boards}</div>
+
       </section>
     );
   }

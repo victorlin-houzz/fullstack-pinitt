@@ -1,4 +1,5 @@
 import SessionActions from '../actions/session_actions';
+import BoardActions from '../actions/board_actions';
 import { hashHistory } from 'react-router';
 
 import { login, signup, logout, fetchUser } from '../util/session_api_util';
@@ -6,10 +7,12 @@ import { login, signup, logout, fetchUser } from '../util/session_api_util';
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
     dispatch(SessionActions.receiveCurrentUser(user));
+    dispatch(BoardActions.fetchBoards(user.id));
   };
 
   const successUserCallback = user => {
     dispatch(SessionActions.receiveUser(user));
+    dispatch(BoardActions.fetchBoards(user.id));
   };
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;

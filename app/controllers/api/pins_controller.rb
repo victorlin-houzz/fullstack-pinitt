@@ -2,6 +2,9 @@ class Api::PinsController < ApplicationController
   LIMIT = 20
 
   def index
+    cloud_name = ENV['CLOUD_NAME']
+    upload_preset = ENV['UPLOAD_PRESET']
+
     if params[:board_id]
       @pins = Pin.where(board_id: params[:board_id])
     elsif params[:user_id]
@@ -45,8 +48,8 @@ class Api::PinsController < ApplicationController
     end
   end
 
-  def delete
-    @pin.find(params[:id])
+  def destroy
+    @pin = Pin.find(params[:id])
     if @pin.destroy
       render :show
     else
