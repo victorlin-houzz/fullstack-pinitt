@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import BoardsContainer from '../board/boards_container';
 
 class User extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class User extends React.Component {
     }
 
     this.props.fetchUser(this.props.params.username);
-    console.log("fetching new user...");
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,23 +29,49 @@ class User extends React.Component {
   }
 
   render() {
+    let comp = null;
+    if (this.props.location.pathname === `/${this.props.params.username}` || this.props.location.pathname === `/${this.props.params.username}/boards` ) {
+      comp = <BoardsContainer />;
+    }
+
     if(!this.props.user) {
       return (<div></div>);
     }
     let boardsUrl = `/boards`;
+    let name = this.props.user.username.charAt(0).toUpperCase() + this.props.user.username.slice(1);
     return (
       <section className="user-container">
-        <h1>{this.props.user.username}</h1>
-        <img src={this.props.user.image_url} />
-        <Link to={boardsUrl}>
-          <ul className="board-text-container">
-            <li>{this.props.boards.length}</li>
-            <li>Board</li>
-          </ul>
-        </Link>
-
-        <button className="logout-button"
-          onClick={(e) => this.loggingOut(e)}>Logout</button>
+        <div className='user-profile'>
+          <p className='username'>{name}</p>
+          <img className='profile-picture' src={this.props.user.image_url} />
+        </div>
+        <div className='summary-container'>
+          <Link to={boardsUrl}>
+            <ul className="text-container">
+              <li className='number'>{this.props.boards.length}</li>
+              <li>Boards</li>
+            </ul>
+            <ul className="text-container">
+              <li className='number'>{this.props.boards.length}</li>
+              <li>Pins</li>
+            </ul>
+            <ul className="text-container">
+              <li className='number'>{this.props.boards.length}</li>
+              <li>Likes</li>
+            </ul>
+            <ul className="text-container">
+              <li className='number'>{this.props.boards.length}</li>
+              <li>Followers</li>
+            </ul>
+            <ul className="text-container">
+              <li className='number'>{this.props.boards.length}</li>
+              <li>Following</li>
+            </ul>
+          </Link>
+        </div>
+        <div className='detail-container'>
+          {comp}
+        </div>
       </section>
     );
   }

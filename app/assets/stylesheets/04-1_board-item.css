@@ -1,0 +1,102 @@
+.board-item-container {
+  position: relative;
+  display: block;
+  float: left;
+  width: 236px;
+  height: 310px;
+  padding: 10px;
+  border: 1px 1px 1px 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.board-item-container:hover {
+  background-color: rgb(242,242,242);
+}
+.pin-picture-background {
+  background-color: rgb(230,230,230);
+}
+
+.pin-picture-block {
+  display: block;
+  content: "";
+  height: 210px;
+}
+
+.detail-block {
+  width: 100%;
+  display: block;
+  float: left;
+}
+.pin-picture-block .one-pic {
+  vertical-align: middle;
+  display: block;
+  float: left;
+}
+
+.pin-picture-block .two-pics {
+  vertical-align: middle;
+  display: block;
+  float: left;
+}
+
+.pin-picture-0 {
+  width: 236px;
+  height: 111px;
+}
+.pin-picture-0 img {
+  margin: 5px;
+  width: 96%;
+  height: 96%;
+}
+
+.pin-picture-1 {
+  display: inline-block;
+  width: 117px;
+  height: 111px;
+}
+
+.pin-picture-1 img {
+  margin: 5px;
+  width: 95%;
+  height: 95%;
+}
+.board-title {
+  display: block;
+  margin: 5px auto;
+  float:left;
+  font-size: 22px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+}
+.pin-count-block {
+  color: rgb(135,172,207);
+  font-size: 16px;
+  width: 100%;
+  display: inline;
+  text-align: left;
+}
+.pin-count-block .pin-count {
+  font-weight: bold;
+}
+
+.pin-count-block .text {
+  font-weight: normal;
+}
+
+.edit-board-button:hover {
+  background-color: rgb(204,204,204);
+}
+.edit-board-button {
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 0 0 0;
+  background-color: rgb(217,217,217);
+}

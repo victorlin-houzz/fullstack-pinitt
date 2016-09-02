@@ -1,1 +1,1 @@
-json.partial!('api/boards/board', board: @board, show_pins: true)
+json.partial!('api/boards/board', board: @board, show_all_pins: true)

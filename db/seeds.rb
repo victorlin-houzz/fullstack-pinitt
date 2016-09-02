@@ -5,14 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Pin.destroy_all
+Board.destroy_all
 User.destroy_all
 
 User.create!(username: "george",password: "password")
 User.create!(username: "mary",password: "password")
 User.create!(username: "guest",password: "password")
 
-Board.destroy_all
+
 
 Board.create!(title: "Board1", description: "Des1", user_id: 1)
 Board.create!(title: "Board2", description: "Des2", user_id: 1)
@@ -25,7 +26,7 @@ Board.create!(title: "Board8", description: "Des8", user_id: 2)
 Board.create!(title: "Board9", description: "Des9", user_id: 2)
 Board.create!(title: "Board10", description: "Des10", user_id: 2)
 
-Pin.destroy_all
+
 
 Pin.create!(title: "Pin1", description: "Des1", image_url: "http://res.cloudinary.com/swissashley/image/upload/v1472660341/sample.jpg", user_id: 1, board_id: 1)
 Pin.create!(title: "Pin2", description: "Des2", image_url: "http://res.cloudinary.com/swissashley/image/upload/v1472660341/sample.jpg", user_id: 1, board_id: 1)

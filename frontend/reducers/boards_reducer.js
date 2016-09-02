@@ -5,21 +5,20 @@ const boards = Object.freeze({});
 const board = Object.freeze({
   title: "",
   description: "",
-  user_id: "",
-  errors: []
+  user_id: ""
 });
 
-const BoardsReducer = function(state = boards, action){
+const BoardsReducer = function(state = {boards, board, errors: []}, action){
   switch(action.type){
     case BoardActions.RECEIVE_BOARDS:
-      return action.boards;
-      
+      return merge({}, state,{boards: action.boards});
+
     case BoardActions.RECEIVE_BOARD:
-      return action.board;
+      return merge({}, state, {board: action.board});
 
     case BoardActions.RECEIVE_ERRORS:
       const errors = action.errors;
-      return merge({}, board, {errors});
+      return merge({}, state, {errors});
 
     default:
       return state;

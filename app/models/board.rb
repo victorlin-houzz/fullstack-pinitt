@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-  validates :title, :user_id, presence: true
+  validates :title, :user, presence: true
   belongs_to :user
-  has_many :pins
+  has_many :pins, dependent: :destroy, inverse_of: :board
 end

@@ -8,8 +8,9 @@ const BoardActions = {
   DELETE_BOARD: "DELETE_BOARD",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
 
-  fetchBoards: () => ({
-    type: BoardActions.FETCH_BOARDS
+  fetchBoards: (userId) => ({
+    type: BoardActions.FETCH_BOARDS,
+    userId
   }),
 
   fetchBoard: id => ({

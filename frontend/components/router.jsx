@@ -1,11 +1,13 @@
 import React from 'react';
 //Router
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import PinsContainer from './pin/pins_container';
+import BoardsContainer from './board/boards_container';
+import BoardContainer from './board/board_container';
 import UserContainer from './user/user_container';
 import SessionActions from '../actions/session_actions';
 
@@ -33,12 +35,14 @@ class AppRouter extends React.Component{
   }
 
   // _requestOneUseronOnEnter (nextState, replace) {
-	// 	store.dispatch(SessionActions.requestOnePokemon(nextState.params.id ,nextState.params.pokemon));
+	// 	store.dispatch(
+  // SessionActions.requestOnePokemon(
+  // nextState.params.id ,nextState.params.pokemon));
   // };
 
   render(){
     return(
-      <Router history={ browserHistory }>
+      <Router history={ hashHistory }>
         <Route path="/" component={ App } >
           <IndexRoute component={ HomeContainer }
             onEnter={this._ensureLoggedIn}/>
@@ -49,11 +53,15 @@ class AppRouter extends React.Component{
           <Route path="/join" component={ SessionFormContainer }
             onEnter={this._redirectIfLoggedIn}/>
 
+
+
           <Route path="/" component={ HomeContainer }
             onEnter={this._ensureLoggedIn}>
             <Route path="pins" component={PinsContainer} />
             <Route path=":username" component={ UserContainer }>
+              <Route path="boards" component={ BoardsContainer } />
             </Route>
+            <Route path="boards/:boardId" component={ BoardContainer } />
           </Route>
         </Route>
       </Router>

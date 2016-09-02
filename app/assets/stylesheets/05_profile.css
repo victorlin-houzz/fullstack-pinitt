@@ -1,0 +1,41 @@
+.user-container {
+  position: relative;
+  display: block;
+}
+.user-container .user-profile {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+}
+
+.user-profile p {
+  text-align: justify;
+  font-size: 50px;
+  margin: 50px 0 0 0;
+  color: rgb(74,74,74);
+}
+.user-container .user-profile .profile-picture {
+  margin: 50px 0 0 0;
+}
+.user-container .summary-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-container .summary-container .text-container {
+  display: inline-block;
+  list-style: none;
+  margin: 50px 30px;
+  color: #555;
+  /*color: rgb(234,234,234);*/
+}
+
+.user-container .summary-container .text-container .number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.user-container .detail-container {
+  display: inline-block;
+  float: left;
+}

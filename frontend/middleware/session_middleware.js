@@ -1,5 +1,5 @@
 import SessionActions from '../actions/session_actions';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 import { login, signup, logout, fetchUser } from '../util/session_api_util';
 

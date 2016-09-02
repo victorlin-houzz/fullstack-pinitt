@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory, withRouter } from 'react-router';
+import { Link, hashHistory, withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props){

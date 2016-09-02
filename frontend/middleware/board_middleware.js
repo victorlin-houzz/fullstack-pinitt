@@ -11,7 +11,7 @@ export default ({getState, dispatch}) => next => action => {
   };
   switch(action.type){
     case BoardActions.FETCH_BOARDS:
-      fetchBoards(receiveBoardsOnSuccess, errorCallback);
+      fetchBoards(action.userId, receiveBoardsOnSuccess, errorCallback);
       return next(action);
 
     case BoardActions.FETCH_BOARD:

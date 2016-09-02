@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-class Pins extends React.Component {
+class BoardPins extends React.Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
-    this.props.fetchAllPins();
   }
 
   isEmpty(obj) {
@@ -21,20 +18,19 @@ class Pins extends React.Component {
   render() {
     let pins = "";
     if (!this.isEmpty(this.props.pins)) {
-      pins = this.props.pins.map((pin) => (
-        <ul key={pin.id}>
-          <li key={pin.title}>{pin.title}</li>
+      pins = Object.keys(this.props.pins).map((pinKey) => (
+        <ul key={this.props.pins[pinKey].id}>
+          <li key={this.props.pins[pinKey].title}>{this.props.pins[pinKey].title}</li>
         </ul>
       ));
     }
-
     return (
       <section className="pins-container">
-        <h1>All the pins go here.</h1>
+        <h1>All the boardpins go here.</h1>
         {pins}
       </section>
     );
   }
 }
 
-export default withRouter(Pins);
+export default BoardPins;

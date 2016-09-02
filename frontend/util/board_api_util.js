@@ -1,7 +1,8 @@
-export const fetchAllBoards = function(success, error) {
+export const fetchBoards = function(user_id, success, error) {
 	$.ajax({
 		method: 'GET',
 		url: '/api/boards',
+		data: {user_id},
 		success,
 		error
 	});
