@@ -19,10 +19,15 @@ class BoardItem extends React.Component {
 
   render() {
     let pinsImageUrl =[null, null, null];
-    let pinKeyArr = Object.keys(this.pins);
-    for (var i = 0; i < 3; i++) {
-      if (i < pinKeyArr.length) {
-        pinsImageUrl[i] = this.pins[pinKeyArr[i]].image_url;
+    let pinCounts = 0;
+    if (this.pins !== undefined) {
+      let pinKeyArr = Object.keys(this.pins);
+      pinCounts = pinKeyArr.length;
+      
+      for (var i = 0; i < 3; i++) {
+        if (i < pinKeyArr.length) {
+          pinsImageUrl[i] = this.pins[pinKeyArr[i]].image_url;
+        }
       }
     }
     let imgs = pinsImageUrl.map((url, idx) => {
@@ -34,7 +39,7 @@ class BoardItem extends React.Component {
         );
       }
     });
-    let pinCounts = Object.keys(this.pins).length;
+
     let boardUrl = "/boards/"+this.board.id;
     return (
       <section className="board-item-container" key={this.board.id+this.board.title}>

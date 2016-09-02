@@ -9,13 +9,21 @@ class Home extends React.Component {
     this.state = {
       openNewBoardModal: false,
       title: "",
-      description: ""
+      description: "",
+      user_id: this.props.currentUser
     };
+    this.createBoard = this.props.createBoard.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 	handleSubmit(e){
-
+    this.createBoard({
+      board: {
+        title: this.state.title,
+        description: this.state.description,
+        user_id: this.props.currentUser.id
+      }
+    });
 	}
 
   openBoardModal() {
