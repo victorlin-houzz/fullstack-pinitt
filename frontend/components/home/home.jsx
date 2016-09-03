@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Link, withRouter } from 'react-router';
 import NavContainer from '../nav/nav_container';
 import PinsContainer from '../pin/pins_container';
+
 class Home extends React.Component {
   constructor (props) {
     super(props);
@@ -10,15 +11,25 @@ class Home extends React.Component {
       openNewBoardModal: false,
       title: "",
       description: "",
-      user_id: this.props.currentUser,
-      openNewPinModal: false
+      user_id: this.props.currentUser.id,
+      openNewPinModal: false,
+      pin_url: 'https://unsplash.com/',
+      pin_img_url: '',
+      pin_title: "",
+      pin_description: "",
+      pin_board_id: -1,
+      pin_user_id: this.props.currentUser.id
     };
+    $.embedly.defaults.key = 'c229169a1897485eb7d85ece95f1ef73';
     this.createBoard = this.props.createBoard.bind(this);
+    this.fetchBoards = this.props.fetchBoards.bind(this);
     this.handleNewBoardSubmit = this.handleNewBoardSubmit.bind(this);
     this.handleNewPinSubmit = this.handleNewPinSubmit.bind(this);
+    this.scrapeImgs = this.scrapeImgs.bind(this);
   }
 
   componentDidMount() {
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -80,6 +91,28 @@ class Home extends React.Component {
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
+
+  scrapeImgs(e) {
+    e.preventDefault();
+    let url = e.currentTarget.value;
+    $.embedly.extract(url).progress(data => {
+    	var images = data.images;
+    	var $container = $('<div class=\'image-container\'>');
+    	images.forEach( (image, idx) => {
+    		var imgUrl = $.embedly.display.resize(image.url, {query: {height: 200, width: 300}});
+
+    		var $img = $(`<img class=\'pin-upload-image pin-upload-image${idx}\'>`);
+        $img.on("click", (e2) => {
+          this.setState({pin_img_url: imgUrl});
+          console.log(this.state.pin_img_url);
+        }).bind(this);
+    		$img.attr('src', imgUrl);
+    		$container.append($img);
+    	});
+
+      $('.new-pin-image-area').html($container);
+    });
+  }
 
   render() {
     let plusUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472664493/plus_mhdary.png';
@@ -205,12 +238,42 @@ class Home extends React.Component {
           style={newPinStyle}>
           <section className="modal-form-container">
             <form	className="modal-form-box">
-              <h1>New Pin here!</h1>
-              <div className="modal-save-button-box">
-                <input type="submit"
-                  className="modal-save-button"
-                  value='Save Pin'
-                  onClick={this.handleNewPinSubmit}/>
+              <div className="modal-form">
+                <label className='modal-label'><p className='modal-label-text'>New URL</p>
+                  <input
+                    type="text"
+                    value={this.state.pin_url}
+                    onChange={this.scrapeImgs}
+                    className="title-input modal-input" />
+                </label>
+                <label className='modal-label'><p className='modal-label-text'>Select an image:</p>
+                  <div className='modal-input new-pin-image-area'>
+
+                  </div>
+                </label>
+                <label className='modal-label'><p className='modal-label-text'>Title</p>
+  								<input
+  									type="text"
+  									value={this.state.pin_title}
+  									onChange={this.update("title")}
+  									className="title-input modal-input"
+                    placeholder='The greatest idea in the world!'/>
+  							</label>
+
+  							<label className='modal-label'><p className='modal-label-text'>Description</p>
+  								<textarea name='description'
+  									onChange={this.update("pin_description")}
+                    value={this.state.pin_description}
+  									className="description-input modal-input"
+                    placeholder='What is your pin about?'></textarea>
+                </label>
+
+                <div className="modal-save-button-box">
+                  <input type="submit"
+                    className="modal-save-button"
+                    value='Save Pin'
+                    onClick={this.handleNewPinSubmit}/>
+                </div>
               </div>
             </form>
           </section>

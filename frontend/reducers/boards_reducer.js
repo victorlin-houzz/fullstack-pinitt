@@ -24,7 +24,8 @@ const BoardsReducer = function(state = {boards, board, errors: []}, action){
     case BoardActions.RECEIVE_BOARD_WITH_CREATE: {
       const oldBoards = state.boards;
       const newBoards = [...oldBoards, action.board];
-      const newState = merge({}, state, {boards: newBoards, board: action.board});
+      // NOTE I return old state.board instead of returning new board.
+      const newState = merge({}, state, {boards: newBoards, board: state.board});
       return newState;
     }
 

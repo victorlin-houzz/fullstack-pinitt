@@ -76,7 +76,7 @@
   background: #eee;
 }
 
-.modal-form .modal-input {
+.modal-input {
   display: block;
   width: 100%;
   line-height: 1.44;
@@ -111,4 +111,22 @@
   text-align: center;
   cursor: pointer;
   background-color: rgb(189,8,28);
+}
+
+.new-pin-image-area .image-container {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.new-pin-image-area {
+  width: 100%;
+  height: 300px;
+  border: 2px;
+  border-style:dashed;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 204);
+}
+
+.new-pin-image-area .pin-upload-image:hover {
+  border: 2px solid blue;
 }
