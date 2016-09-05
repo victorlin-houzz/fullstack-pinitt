@@ -2,9 +2,9 @@ class CreatePins < ActiveRecord::Migration[5.0]
   def change
     create_table :pins do |t|
       t.string :title, null: false
-      t.string :description, null: false
-      t.string :url, default: "https://www.appacademy.io/"
-      t.string :image_url, null: false
+      t.text :description, null: false
+      t.text :url, default: "https://www.appacademy.io/"
+      t.text :image_url, null: false
       t.integer :user_id, null: false
       t.integer :board_id, null: false
       t.timestamps

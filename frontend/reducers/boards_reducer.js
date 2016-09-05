@@ -11,13 +11,13 @@ const board = Object.freeze({
 const BoardsReducer = function(state = {boards, board, errors: []}, action){
   switch(action.type){
     case BoardActions.RECEIVE_BOARDS: {
-      const newState = merge({}, state,{boards: action.boards});
+      const newState = {boards: action.boards};
       return newState;
     }
 
     case BoardActions.RECEIVE_BOARD: {
       const oldBoards = state.boards;
-      const newState = merge({}, state, {board: action.board});
+      const newState = {boards: oldBoards, board: action.board};
       return newState;
     }
 

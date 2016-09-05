@@ -13,9 +13,13 @@
   font-size: 50px;
   margin: 50px 0 0 0;
   color: rgb(74,74,74);
+
 }
 .user-container .user-profile .profile-picture {
   margin: 50px 0 0 0;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 .user-container .summary-container {
   display: flex;

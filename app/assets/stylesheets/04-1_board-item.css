@@ -3,7 +3,7 @@
   display: block;
   float: left;
   width: 236px;
-  height: 310px;
+  height: auto;
   padding: 10px;
   border: 1px 1px 1px 1px solid #ccc;
   border-radius: 4px;
@@ -44,23 +44,23 @@
 .pin-picture-0 {
   width: 236px;
   height: 111px;
+  overflow:hidden;
 }
 .pin-picture-0 img {
   margin: 5px;
   width: 96%;
-  height: 96%;
 }
 
 .pin-picture-1 {
   display: inline-block;
   width: 117px;
   height: 111px;
+  overflow:hidden;
 }
 
 .pin-picture-1 img {
   margin: 5px;
   width: 95%;
-  height: 95%;
 }
 .board-title {
   display: block;

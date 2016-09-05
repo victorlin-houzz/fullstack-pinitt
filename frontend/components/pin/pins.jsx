@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import PinItem from './pin_item';
 
 class Pins extends React.Component {
   constructor(props) {
@@ -22,16 +23,13 @@ class Pins extends React.Component {
     let pins = "";
     if (!this.isEmpty(this.props.pins)) {
       pins = this.props.pins.map((pin) => (
-        <ul key={pin.id}>
-          <li key={pin.title}>{pin.title}</li>
-        </ul>
+        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin}/>
       ));
     }
 
     return (
       <section className="pins-container">
-        <h1>All the pins go here.</h1>
-        {pins}
+        <div className='all-pin-container'>{pins}</div>
       </section>
     );
   }

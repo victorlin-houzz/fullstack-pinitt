@@ -39,7 +39,7 @@ export const createPin = (pin, success, error) => {
 export const updatePin = (pin, success, error) => {
   $.ajax({
     method: 'PATCH',
-    url: `api/pins/${pin.id}`,
+    url: `api/pins/${pin.pin.id}`,
     data: pin,
     success,
 		error

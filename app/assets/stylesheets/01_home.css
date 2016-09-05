@@ -127,6 +127,10 @@
   background-color: rgb(255, 255, 204);
 }
 
-.new-pin-image-area .pin-upload-image:hover {
-  border: 2px solid blue;
+.new-pin-image-area .pin-upload-image-unchecked {
+  opacity: 1;
+}
+
+.new-pin-image-area .pin-upload-image-checked {
+  opacity: 0.6;
 }

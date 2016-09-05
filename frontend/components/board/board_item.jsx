@@ -157,7 +157,8 @@ class BoardItem extends React.Component {
             <form	className="modal-form-box">
 
               <div className="modal-form">
-                <label className='modal-label'><p className='modal-label-text'>Title</p>
+                <label className='modal-label'>
+                  <p className='modal-label-text'>Title</p>
                   <input
                     type="text"
                     onChange={this.update("title")}

@@ -10,6 +10,10 @@ import { fetchAllPins,
 export default ({getState, dispatch}) => next => action => {
   const receiveAllPinsOnSuccess = pins => dispatch(PinActions.receiveAllPins(pins));
   const receiveBoardPinsOnSuccess = pins => dispatch(PinActions.receiveBoardPins(pins));
+  const receivePinWithCreateOnSuccess = pin => dispatch(PinActions.receivePinWithCreate(pin));
+  const receivePinWithEditOnSuccess = pin => dispatch(PinActions.receivePinWithEdit(pin));
+  const receivePinWithDeleteOnSuccess = id => dispatch(PinActions.receivePinWithDelete(id));
+
   const receivePinOnSuccess = pin => dispatch(PinActions.receivePin(pin));
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
@@ -29,15 +33,15 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
 
     case PinActions.CREATE_PIN:
-      createPin(action.pin, receivePinOnSuccess, errorCallback);
+      createPin(action.pin, receivePinWithCreateOnSuccess, errorCallback);
       break;
 
     case PinActions.UPDATE_PIN:
-      updatePin(action.pin, receivePinOnSuccess, errorCallback);
+      updatePin(action.pin, receivePinWithEditOnSuccess, errorCallback);
       break;
 
     case PinActions.DELETE_PIN:
-      deletePin(action.id, receivePinOnSuccess, errorCallback);
+      deletePin(action.id, receivePinWithDeleteOnSuccess, errorCallback);
       break;
 
     default:

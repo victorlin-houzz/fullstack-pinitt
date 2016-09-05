@@ -4,6 +4,9 @@ const PinActions = {
   FETCH_PIN: "FETCH_PIN",
   RECEIVE_ALL_PINS: "RECEIVE_ALL_PINS",
   RECEIVE_BOARD_PINS: "RECEIVE_BOARD_PINS",
+  RECEIVE_PIN_WITH_CREATE: "RECEIVE_PIN_WITH_CREATE",
+  RECEIVE_PIN_WITH_EDIT: "RECEIVE_PIN_WITH_EDIT",
+  RECEIVE_PIN_WITH_DELETE: "RECEIVE_PIN_WITH_DELETE",
   RECEIVE_PIN: "RECEIVE_PIN",
   CREATE_PIN: "CREATE_PIN",
   UPDATE_PIN: "UPDATE_PIN",
@@ -37,6 +40,21 @@ const PinActions = {
   receivePin: pin => ({
     type: PinActions.RECEIVE_PIN,
     pin
+  }),
+
+  receivePinWithCreate: pin => ({
+    type: PinActions.RECEIVE_PIN_WITH_CREATE,
+    pin
+  }),
+
+  receivePinWithEdit: pin => ({
+    type: PinActions.RECEIVE_PIN_WITH_EDIT,
+    pin
+  }),
+
+  receivePinWithDelete: id => ({
+    type: PinActions.RECEIVE_PIN_WITH_DELETE,
+    id
   }),
 
   createPin: pin => ({

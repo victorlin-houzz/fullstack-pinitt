@@ -13,19 +13,22 @@ class Home extends React.Component {
       description: "",
       user_id: this.props.currentUser.id,
       openNewPinModal: false,
-      pin_url: 'https://unsplash.com/',
-      pin_img_url: '',
+      pin_url: '',
+      pin_image_url: '',
       pin_title: "",
       pin_description: "",
       pin_board_id: -1,
-      pin_user_id: this.props.currentUser.id
+      pin_user_id: this.props.currentUser.id,
+      errors: []
     };
     $.embedly.defaults.key = 'c229169a1897485eb7d85ece95f1ef73';
     this.createBoard = this.props.createBoard.bind(this);
+    this.createPin = this.props.createPin.bind(this);
     this.fetchBoards = this.props.fetchBoards.bind(this);
     this.handleNewBoardSubmit = this.handleNewBoardSubmit.bind(this);
     this.handleNewPinSubmit = this.handleNewPinSubmit.bind(this);
     this.scrapeImgs = this.scrapeImgs.bind(this);
+    this.selectBoard = this.selectBoard.bind(this);
   }
 
   componentDidMount() {
@@ -49,14 +52,39 @@ class Home extends React.Component {
 
   handleNewPinSubmit(e){
     e.preventDefault();
-    // this.createPin({
-    //   pin: {
-    //     title: this.state.title,
-    //     description: this.state.description,
-    //     user_id: this.props.currentUser.id
-    //   }
-    // });
-    this.closePinModal();
+    this.state['errors'] = [];
+    console.log(this.state);
+    if (this.state.pin_url === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['URL cannot be blank!']);
+    }
+    if (this.state.pin_image_url === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['Please select an image!']);
+    }
+    if (this.state.pin_title === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['Title cannot be blank!']);
+    }
+    if (this.state.pin_description === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['Description cannot be blank!']);
+    }
+    if (this.state.pin_board_id === -1) {
+      this.state['errors'] = this.state.errors.slice().concat(['Please select a board to save the pin!']);
+    }
+    if (this.state.errors.length !== 0) {
+      this.closePinModal();
+      this.openPinModal();
+    } else {
+      this.createPin({
+        pin: {
+          title: this.state.pin_title,
+          description: this.state.pin_description,
+          user_id: this.state.user_id,
+          board_id: this.state.pin_board_id,
+          url: this.state.pin_url,
+          image_url: this.state.pin_image_url
+        }
+      });
+      this.closePinModal();
+    }
 	}
 
   openPinModal() {
@@ -95,16 +123,19 @@ class Home extends React.Component {
   scrapeImgs(e) {
     e.preventDefault();
     let url = e.currentTarget.value;
+    this.setState({pin_url: url});
     $.embedly.extract(url).progress(data => {
     	var images = data.images;
     	var $container = $('<div class=\'image-container\'>');
     	images.forEach( (image, idx) => {
     		var imgUrl = $.embedly.display.resize(image.url, {query: {height: 200, width: 300}});
-
-    		var $img = $(`<img class=\'pin-upload-image pin-upload-image${idx}\'>`);
+    		var $img = $(`<img class=\'pin-upload-image-unchecked pin-upload-image${idx}\'>`);
         $img.on("click", (e2) => {
-          this.setState({pin_img_url: imgUrl});
-          console.log(this.state.pin_img_url);
+          this.setState({pin_image_url: imgUrl});
+          $('.image-container').children().each(function() {
+            $(this).attr('class', 'pin-upload-image-unchecked');
+          });
+          $img.attr('class', 'pin-upload-image-checked');
         }).bind(this);
     		$img.attr('src', imgUrl);
     		$container.append($img);
@@ -113,6 +144,23 @@ class Home extends React.Component {
       $('.new-pin-image-area').html($container);
     });
   }
+
+  selectBoard(e) {
+    this.setState({pin_board_id: e.currentTarget.value});
+    console.log(this.state);
+  }
+
+  renderErrors(){
+		return(
+			<ul>
+				{this.state.errors.map( (error, i) => (
+					<li key={`error-${i}`} className='error-prompt'>
+						{error}
+					</li>
+				))}
+			</ul>
+		);
+	}
 
   render() {
     let plusUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472664493/plus_mhdary.png';
@@ -177,6 +225,12 @@ class Home extends React.Component {
         boxShadow : '3px 3px 10px black',
       }
     };
+    let boardList = null;
+    if ( this.props.boards !== undefined && Object.keys(this.props.boards).length !== 0) {
+      boardList = Object.keys(this.props.boards).map( (boardKey, idx) => {
+        return (<option value={this.props.boards[boardKey].id}>{this.props.boards[boardKey].title}</option>);
+      });
+    }
 
     return (
       <section className="home-container">
@@ -207,7 +261,6 @@ class Home extends React.Component {
   							<label className='modal-label'><p className='modal-label-text'>Title</p>
   								<input
   									type="text"
-  									value={this.state.username}
   									onChange={this.update("title")}
   									className="title-input modal-input"
                     placeholder='Like `Places to Go` or `Recipes to Make`.'/>
@@ -216,7 +269,6 @@ class Home extends React.Component {
   							<label className='modal-label'><p className='modal-label-text'>Description</p>
   								<textarea name='description'
   									onChange={this.update("description")}
-                    value={this.state.description}
   									className="description-input modal-input"
                     placeholder='What is your board about?'></textarea>
                 </label>
@@ -239,11 +291,15 @@ class Home extends React.Component {
           <section className="modal-form-container">
             <form	className="modal-form-box">
               <div className="modal-form">
-                <label className='modal-label'><p className='modal-label-text'>New URL</p>
+                <div>
+    						{ this.renderErrors() }
+    						</div>
+                <label className='modal-label'>
+                  <p className='modal-label-text'>New URL</p>
                   <input
-                    type="text"
-                    value={this.state.pin_url}
+                    type='text'
                     onChange={this.scrapeImgs}
+                    defaultValue='http://'
                     className="title-input modal-input" />
                 </label>
                 <label className='modal-label'><p className='modal-label-text'>Select an image:</p>
@@ -254,8 +310,7 @@ class Home extends React.Component {
                 <label className='modal-label'><p className='modal-label-text'>Title</p>
   								<input
   									type="text"
-  									value={this.state.pin_title}
-  									onChange={this.update("title")}
+  									onChange={this.update("pin_title")}
   									className="title-input modal-input"
                     placeholder='The greatest idea in the world!'/>
   							</label>
@@ -263,11 +318,15 @@ class Home extends React.Component {
   							<label className='modal-label'><p className='modal-label-text'>Description</p>
   								<textarea name='description'
   									onChange={this.update("pin_description")}
-                    value={this.state.pin_description}
   									className="description-input modal-input"
                     placeholder='What is your pin about?'></textarea>
                 </label>
-
+  							<label className='modal-label'><p className='modal-label-text'>Select a Board</p>
+                 <select className='modal-board-select' onChange={this.selectBoard}>
+                   <option disabled selected value> -- select an option -- </option>
+                   {boardList}
+                 </select>
+                </label>
                 <div className="modal-save-button-box">
                   <input type="submit"
                     className="modal-save-button"

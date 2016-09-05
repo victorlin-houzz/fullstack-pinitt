@@ -86,17 +86,18 @@ class SessionForm extends React.Component {
 		let loginText = (this.props.formType === "login") ? "Login" : "Sign Up";
 		let demo1Button = (this.props.formType === "login") ?
 		<button className="login-buttons demo-button"
-			onClick={(e) => this.demoLogin(e, "george", "password")}>George</button> : "";
+			onClick={(e) => this.demoLogin(e, "daniel", "password")}>Daniel</button> : "";
 		let demo2Button = (this.props.formType === "login") ?
 		<button className="login-buttons demo-button"
-			onClick={(e) => this.demoLogin(e, "mary", "password")}>Mary</button> : "";
+			onClick={(e) => this.demoLogin(e, "emma", "password")}>Emma</button> : "";
 
 		return (
 			<main className="session-form">
 				<section className="login-form-container">
 					<form
 						className="login-form-box">
-						Welcome to Pinitt!
+						<h1 id='web-name'>Pinitt</h1>
+						<p id='slogan'>with shinest ideas</p>
 						<div className="switch-button">
 							{ this.navLink() }
 						</div>

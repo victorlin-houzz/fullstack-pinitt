@@ -10,18 +10,15 @@ class User extends React.Component {
     if (this.props.currentUser.id === this.props.params.userId) {
       this.isOwnPage = true;
     }
-
+    this.user = this.props.user;
     this.props.fetchUser(this.props.params.username);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.username !== nextProps.params.username) {
-      this.props.fetchUser(this.props.params.username);
+      this.props.fetchUser(nextProps.params.username);
     }
-    // this.user = nextProps.user;
-    // console.log("life...");
-    // console.log(nextProps.user);
-    // console.log("-----");
+    this.user = nextProps.user;
   }
 
   loggingOut (e) {
@@ -34,16 +31,16 @@ class User extends React.Component {
       comp = <BoardsContainer />;
     }
 
-    if(!this.props.user) {
+    if(!this.user) {
       return (<div></div>);
     }
     let boardsUrl = `/boards`;
-    let name = this.props.user.username.charAt(0).toUpperCase() + this.props.user.username.slice(1);
+    let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
     return (
       <section className="user-container">
         <div className='user-profile'>
           <p className='username'>{name}</p>
-          <img className='profile-picture' src={this.props.user.image_url} />
+          <img className='profile-picture' src={this.user.image_url} />
         </div>
         <div className='summary-container'>
           <Link to={boardsUrl}>

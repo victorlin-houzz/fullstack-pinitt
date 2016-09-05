@@ -8,7 +8,8 @@ return ({
     currentUser: state.session.currentUser,
     user: state.user,
     board: state.boards.board,
-    pins: state.pins
+    pins: state.pins.pins,
+    pin: state.pins.pin
   });
 
 };

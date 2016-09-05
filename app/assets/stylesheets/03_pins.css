@@ -1,3 +1,38 @@
 .pins-container {
   background-color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+	max-width: 1400px;
+	min-width: 500px;
+	margin: 50px auto;
+}
+
+.all-pin-container {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 10px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 3;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 3;
+	column-gap: 15px;
+	column-fill: auto;
+}
+
+@media (min-width: 900px) {
+	.all-pin-container {
+		-webkit-column-count: 4;
+		-moz-column-count: 4;
+		column-count: 4;
+	}
+}
+
+@media (min-width: 1300px) {
+	.all-pin-container {
+		-webkit-column-count: 5;
+		-moz-column-count: 5;
+		column-count: 5;
+	}
 }
