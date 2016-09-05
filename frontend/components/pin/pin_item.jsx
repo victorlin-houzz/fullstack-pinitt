@@ -38,7 +38,9 @@ class PinItem extends React.Component {
 
   openPinModal() {
     this.setState({
-      openEditPinModal: true
+      openEditPinModal: true,
+      title: this.props.pin.title,
+      description: this.props.pin.description
     });
   }
 
