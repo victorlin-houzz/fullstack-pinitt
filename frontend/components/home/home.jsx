@@ -287,7 +287,7 @@ class Home extends React.Component {
   							<div className="modal-save-button-box">
   								<input type="submit"
   									className="modal-save-button"
-  									value='Create Board'
+  									value='Save Board'
   									onClick={this.handleNewBoardSubmit}/>
   							</div>
   						</div>
