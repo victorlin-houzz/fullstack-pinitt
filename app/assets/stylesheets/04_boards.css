@@ -19,7 +19,18 @@
   cursor: pointer;
 }
 .new-board-item:hover {
-  background-color: rgb(242,242,242);
+  background-color: rgb(204,204,204);
+}
+
+.create-a-board {
+  color: rgb(194,194,194);
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+
+.new-board-item:hover .create-a-board {
+  color: rgb(115,115,115);
 }
 
 .plus-sign-at-board {

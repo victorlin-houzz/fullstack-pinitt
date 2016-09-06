@@ -46,8 +46,8 @@ class Home extends React.Component {
 
     // Return from new pin.
     } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id === nextProps.board.id) {
-      if (nextProps.pin !== undefined && nextProps.pin.board.id === this.props.board.id) {
-        this.props.router.push(`boards/${nextProps.board.id}`);
+      if (nextProps.pin !== undefined && nextProps.pin.board!== undefined && nextProps.pin.board.id === this.props.board.id) {
+        this.props.router.push(`boards/${this.props.board.id}`);
       }
     }
   }

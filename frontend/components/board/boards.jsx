@@ -91,6 +91,7 @@ class Boards extends React.Component {
     if (this.props.user !== undefined && this.props.user.id === this.props.currentUser.id) {
       newBoard = (
         <section className="new-board-item" key="new-board" onClick={this.openBoardModal.bind(this)}>
+          <p className='create-a-board'>Create a board</p>
           <img src={plusUrl} className='plus-sign-at-board' />
         </section>
       );
