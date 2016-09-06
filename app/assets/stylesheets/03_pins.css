@@ -1,12 +1,10 @@
 .pins-container {
   background-color: white;
-  padding-left: 2%;
   padding-right: 2%;
   overflow-x: scroll;
   overflow-y: hidden;
 	max-width: 1400px;
 	min-width: 500px;
-	margin: 50px auto;
 }
 
 .all-pin-container {

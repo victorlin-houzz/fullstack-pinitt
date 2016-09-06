@@ -248,7 +248,9 @@ class Home extends React.Component {
     return (
       <section className="home-container">
         <NavContainer />
-        {comp}
+        <div className='home-children'>
+          {comp}
+        </div>
         {this.props.children}
         <div className="add-pin-button" onClick={() => {
           this.thing.classList.toggle("m-fadeIn");

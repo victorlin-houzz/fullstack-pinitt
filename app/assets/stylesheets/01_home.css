@@ -5,6 +5,9 @@
   min-width: 560px;
   padding-left: 20px;
 }
+.home-children {
+  margin-left: 50px;
+}
 
 .add-pin-button {
   color: black;
