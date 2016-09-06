@@ -36,10 +36,19 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // Return from new board
     if (this.props.board === undefined && nextProps.board !== undefined) {
       this.props.router.push(`boards/${nextProps.board.id}`);
+
+    // Return from new board
     } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id !== nextProps.board.id) {
       this.props.router.push(`boards/${nextProps.board.id}`);
+
+    // Return from new pin.
+    } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id === nextProps.board.id) {
+      if (nextProps.pin !== undefined && nextProps.pin.board.id === this.props.board.id) {
+        this.props.router.push(`boards/${nextProps.board.id}`);
+      }
     }
   }
 
@@ -101,6 +110,12 @@ class Home extends React.Component {
     this.thing2.classList.toggle("m-fadeIn");
   }
 
+  closePinModal() {
+    this.setState({
+      openNewPinModal: false
+    });
+  }
+
   openBoardModal() {
     this.setState({
       openNewBoardModal: true
@@ -112,12 +127,6 @@ class Home extends React.Component {
   closeBoardModal() {
     this.setState({
       openNewBoardModal: false
-    });
-  }
-
-  closePinModal() {
-    this.setState({
-      openNewPinModal: false
     });
   }
 

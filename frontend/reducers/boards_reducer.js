@@ -11,7 +11,7 @@ const board = Object.freeze({
 const BoardsReducer = function(state = {boards, board, errors: []}, action){
   switch(action.type){
     case BoardActions.RECEIVE_BOARDS: {
-      const newState = {boards: action.boards};
+      const newState = {boards: action.boards, board: state.board};
       return newState;
     }
 

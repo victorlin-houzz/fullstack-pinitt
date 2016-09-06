@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   fetchBoards: (userId) => dispatch(BoardActions.fetchBoards(userId)),
   fetchBoard: (id) => dispatch(BoardActions.fetchBoard(id)),
+  createBoard: board => dispatch(BoardActions.createBoard(board)),
   updateBoard: (board) => dispatch(BoardActions.updateBoard(board)),
   deleteBoard: (id) => dispatch(BoardActions.deleteBoard(id))
 });

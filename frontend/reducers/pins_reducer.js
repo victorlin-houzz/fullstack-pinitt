@@ -30,8 +30,7 @@ const PinsReducer = function(state = {pins, pin, errors:[]}, action){
     case PinActions.RECEIVE_PIN_WITH_CREATE: {
       const oldPins = state.pins;
       const newPins = [...oldPins, action.pin];
-      // NOTE I return old state.pin instead of returning new pin.
-      const newState = merge({}, state, {pins: newPins, pin: state.pin});
+      const newState = merge({}, state, {pins: newPins, pin: action.pin});
       return newState;
     }
 
