@@ -117,24 +117,21 @@ class Boards extends React.Component {
     					<form	className="modal-form-box">
 
     						<div className="modal-form">
-    							<label className='modal-label'><p className='modal-label-text'>Title</p>
-    								<input
-    									type="text"
-    									onChange={this.update("title")}
-    									className="title-input modal-input"
-                      placeholder='Like `Places to Go` or `Recipes to Make`.'/>
-    							</label>
+  								<input
+  									type="text"
+  									onChange={this.update("title")}
+  									className="title-input modal-input"
+                    placeholder='Title'/>
 
-    							<label className='modal-label'><p className='modal-label-text'>Description</p>
-    								<textarea name='description'
-    									onChange={this.update("description")}
-    									className="description-input modal-input"
-                      placeholder='What is your board about?'></textarea>
-                  </label>
+  								<textarea name='description'
+  									onChange={this.update("description")}
+  									className="description-input modal-input"
+                    placeholder='What is your board about?'></textarea>
+
     							<div className="modal-save-button-box">
     								<input type="submit"
     									className="modal-save-button"
-    									value='Save Board'
+    									value='Create Board'
     									onClick={this.handleNewBoardSubmit}/>
     							</div>
     						</div>

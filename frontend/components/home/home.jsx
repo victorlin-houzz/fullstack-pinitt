@@ -273,24 +273,21 @@ class Home extends React.Component {
   					<form	className="modal-form-box">
 
   						<div className="modal-form">
-  							<label className='modal-label'><p className='modal-label-text'>Title</p>
-  								<input
-  									type="text"
-  									onChange={this.update("title")}
-  									className="title-input modal-input"
-                    placeholder='Like `Places to Go` or `Recipes to Make`.'/>
-  							</label>
+								<input
+									type="text"
+									onChange={this.update("title")}
+									className="title-input modal-input"
+                  placeholder='Title'/>
 
-  							<label className='modal-label'><p className='modal-label-text'>Description</p>
-  								<textarea name='description'
-  									onChange={this.update("description")}
-  									className="description-input modal-input"
-                    placeholder='What is your board about?'></textarea>
-                </label>
+								<textarea name='description'
+									onChange={this.update("description")}
+									className="description-input modal-input"
+                  placeholder='What is your board about?'></textarea>
+
   							<div className="modal-save-button-box">
   								<input type="submit"
   									className="modal-save-button"
-  									value='Save Board'
+  									value='Create Board'
   									onClick={this.handleNewBoardSubmit}/>
   							</div>
   						</div>
@@ -317,31 +314,24 @@ class Home extends React.Component {
                     defaultValue='http://'
                     className="title-input modal-input" />
                 </label>
-                <label className='modal-label'><p className='modal-label-text'>Select an image:</p>
-                  <div className='modal-input new-pin-image-area'>
+                <div className='modal-input new-pin-image-area'>
+                  <img className='background-image' src='http://res.cloudinary.com/pinitt/image/upload/c_scale,w_80/v1473189417/images_ftog7y.png' />
+                </div>
+								<input
+									type="text"
+									onChange={this.update("pin_title")}
+									className="title-input modal-input"
+                  placeholder='Title'/>
 
-                  </div>
-                </label>
-                <label className='modal-label'><p className='modal-label-text'>Title</p>
-  								<input
-  									type="text"
-  									onChange={this.update("pin_title")}
-  									className="title-input modal-input"
-                    placeholder='The greatest idea in the world!'/>
-  							</label>
-
-  							<label className='modal-label'><p className='modal-label-text'>Description</p>
-  								<textarea name='description'
-  									onChange={this.update("pin_description")}
-  									className="description-input modal-input"
-                    placeholder='What is your pin about?'></textarea>
-                </label>
-  							<label className='modal-label'><p className='modal-label-text'>Select a Board</p>
-                 <select className='modal-board-select' onChange={this.selectBoard}>
-                   <option disabled selected value> -- select an option -- </option>
+								<textarea name='description'
+									onChange={this.update("pin_description")}
+									className="description-input modal-input"
+                  placeholder='What is your pin about?'></textarea>
+                 <select className='modal-input modal-board-select' onChange={this.selectBoard}>
+                   <option disabled selected value> -- select a board -- </option>
                    {boardList}
                  </select>
-                </label>
+
                 <div className="modal-save-button-box">
                   <input type="submit"
                     className="modal-save-button"
