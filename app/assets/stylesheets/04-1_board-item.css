@@ -42,8 +42,8 @@
 }
 
 .pin-picture-0 {
-  width: 236px;
-  height: 111px;
+  width: 234px;
+  height: 110px;
   overflow:hidden;
 }
 .pin-picture-0 img {
@@ -66,7 +66,7 @@
   display: block;
   margin: 5px auto;
   float:left;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   width: 100%;
   text-align: left;

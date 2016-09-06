@@ -1,29 +1,43 @@
 .user-container {
-  position: relative;
   display: block;
 }
 .user-container .user-profile {
-  display: flex;
-  justify-content: space-around;
-  vertical-align: middle;
-}
-
-.user-profile p {
-  text-align: justify;
+  display: block;
+  width: 100%;
   font-size: 50px;
   margin: 50px 0 0 0;
   color: rgb(74,74,74);
-
+  margin-left: 50px;
 }
-.user-container .user-profile .profile-picture {
+
+.user-profile .username{
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+.user-container .empty {
+  content: "";
+  display: block;
+}
+.user-profile .user-description {
+  font-size: 20px;
+  float: left;
+  padding-right: 300px;
+}
+
+.user-container .profile-picture {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  float: right;
   margin: 50px 0 0 0;
   border-radius: 50%;
   width: 100px;
   height: 100px;
 }
 .user-container .summary-container {
-  display: flex;
-  justify-content: space-around;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .user-container .summary-container .text-container {

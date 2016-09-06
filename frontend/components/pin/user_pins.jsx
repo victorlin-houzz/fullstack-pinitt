@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import PinItem from '../pin/pin_item';
-class BoardPins extends React.Component {
+class UserPins extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -39,4 +39,4 @@ class BoardPins extends React.Component {
   }
 }
 
-export default BoardPins;
+export default UserPins;

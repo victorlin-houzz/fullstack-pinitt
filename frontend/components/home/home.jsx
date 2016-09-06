@@ -36,6 +36,11 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.board === undefined && nextProps.board !== undefined) {
+      this.props.router.push(`boards/${nextProps.board.id}`);
+    } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id !== nextProps.board.id) {
+      this.props.router.push(`boards/${nextProps.board.id}`);
+    }
   }
 
 	handleNewBoardSubmit(e){
@@ -246,10 +251,10 @@ class Home extends React.Component {
         <ul className="add-pin-menu" id="add-pin-menu-id">
           <li onClick={this.openPinModal.bind(this)}>Create a new Pin.</li>
           <li onClick={this.openBoardModal.bind(this)}>Create a new Board.</li>
+          <div className="greater" id="greater-id">
+            <img src={greaterUrl} className='greater-img' />
+          </div>
         </ul>
-        <div className="greater" id="greater-id">
-          <img src={greaterUrl} className='greater-img' />
-        </div>
         <Modal className='addNewBoardModal'
           isOpen={this.state.openNewBoardModal}
           onRequestClose={this.closeBoardModal.bind(this)}

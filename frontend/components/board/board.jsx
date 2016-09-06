@@ -24,10 +24,12 @@ class Boards extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({title: nextProps.board.title });
-    this.setState({description: nextProps.board.description });
+    if (nextProps.board !== undefined) {
+      this.setState({title: nextProps.board.title });
+      this.setState({description: nextProps.board.description });
+    }
   }
-  
+
   isEmpty(obj) {
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
@@ -102,9 +104,17 @@ class Boards extends React.Component {
     let boardPins = null;
     let pinCount = 0;
     if (this.props.board !== undefined && this.props.board.pins !== undefined) {
-      boardPins = <BoardPins pins={this.props.board.pins}/>;
+      boardPins = <BoardPins pins={this.props.board.pins}
+        user={this.props.user} currentUser={this.props.currentUser}
+        fetchPin={this.props.fetchPin} updatePin={this.props.updatePin}
+        deletePin={this.props.deletePin}/>;
       pinCount = Object.keys(this.props.board.pins).length;
+    } else if (this.props.board !== undefined) {
+
+    }else {
+      return (<div></div>);
     }
+
     return (
       <section className="board-container">
         <div className='board-details'>

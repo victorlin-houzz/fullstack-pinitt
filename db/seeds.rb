@@ -9,15 +9,42 @@ Pin.destroy_all
 Board.destroy_all
 User.destroy_all
 
-User.create!(username: "daniel",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,g_face,h_629,w_629/v1473100945/daniel-radcliffe_twr4u1.jpg")
-User.create!(username: "emma",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_300,w_300/v1473100256/emma-watson_mblx3y.jpg")
-User.create!(username: "george",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/v1473100255/george-clooney_sdydbh.jpg")
-User.create!(username: "will",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_300,w_300/v1473100255/will-smith_c69qwg.jpg")
-User.create!(username: "matt",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,w_300/v1473100255/matt-damon_cufrih.jpg")
-User.create!(username: "taylor",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/v1473100255/taylor-swift_xzggox.jpg")
-User.create!(username: "angelina",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_301,w_301/v1473100849/angelina-jolie_hdam3c.jpg")
-User.create!(username: "kerry",password: "password", image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_474,w_474/v1473100849/kerry-washington_kls9g0.jpg")
-User.create!(username: "guest",password: "password")
+User.create!(username: "daniel",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,g_face,h_629,w_629/v1473100945/daniel-radcliffe_twr4u1.jpg",
+description: "I'm not clumsy, I'm accident-prone!\n
+I think I'm a tiny bit like Harry 'cos I'd like to have an owl. Yeah, that's the tiny bit, actually.\n
+I'm not a religious person. My mom was of Jewish blood and my dad was Protestant.")
+
+User.create!(username: "emma",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_300,w_300/v1473100256/emma-watson_mblx3y.jpg",
+description: "")
+
+User.create!(username: "george",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/v1473100255/george-clooney_sdydbh.jpg",
+description: "I am an American actor, filmmaker, and activist. He has received three Golden Globe Awards for his work as an actor and two Academy Awards, one for acting and the other for producing.")
+
+User.create!(username: "will",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_300,w_300/v1473100255/will-smith_c69qwg.jpg",
+description: "I am an American actor, producer, rapper, and songwriter. In April 2007, Newsweek called me the most powerful actor in Hollywood.")
+
+User.create!(username: "matt",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,w_300/v1473100255/matt-damon_cufrih.jpg",
+description: "I am an American actor, film producer and screenwriter, ranked among Forbes magazine's most bankable stars and is one of the highest-grossing actors of all time.")
+
+User.create!(username: "taylor",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/v1473100255/taylor-swift_xzggox.jpg",
+description: "I am an American singer-songwriter. Raised in Wyomissing, Pennsylvania, she moved to Nashville, Tennessee, at the age of 14 to pursue a career in country music.")
+
+User.create!(username: "angelina",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_301,w_301/v1473100849/angelina-jolie_hdam3c.jpg",
+description: "I am an American actress, filmmaker, and humanitarian. She has received an Academy Award, two Screen Actors Guild Awards, and three Golden Globe Awards, and has been cited as Hollywood's highest-paid actress.")
+
+User.create!(username: "kerry",password: "password",
+image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_474,w_474/v1473100849/kerry-washington_kls9g0.jpg",
+description: "I am an American actress.
+Since 2012, gained wide public recognition for starring in
+the ABC drama Scandal, a Shonda Rhimes series in which as Olivia Pope.")
+
 
 
 

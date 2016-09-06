@@ -36,7 +36,7 @@ export default ({getState, dispatch}) => next => action => {
       createPin(action.pin, receivePinWithCreateOnSuccess, errorCallback);
       break;
 
-    case PinActions.UPDATE_PIN:
+    case PinActions.UPDATE_PIN: 
       updatePin(action.pin, receivePinWithEditOnSuccess, errorCallback);
       break;
 

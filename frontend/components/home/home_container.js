@@ -7,6 +7,7 @@ import Home from './home';
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   boards: state.boards.boards,
+  board: state.boards.board,
   pins: state.pins.pins,
   pin: state.pins.pin
 });

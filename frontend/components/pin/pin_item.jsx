@@ -7,6 +7,7 @@ class PinItem extends React.Component {
     super(props);
     this.state = {
       openEditPinModal: false,
+      openPinDetailModal: false,
       title: "",
       description: "",
       url: "",
@@ -47,6 +48,18 @@ class PinItem extends React.Component {
   closePinModal() {
     this.setState({
       openEditPinModal: false
+    });
+  }
+
+  openPinDetailModal() {
+    this.setState({
+      openPinDetailModal: true
+    });
+  }
+
+  closePinDetailModal() {
+    this.setState({
+      openPinDetailModal: false
     });
   }
 
@@ -99,6 +112,33 @@ class PinItem extends React.Component {
         boxShadow : '3px 3px 10px black',
       }
     };
+
+    let detailPinStyle = {
+      overlay : {
+      position        : 'fixed',
+      top             : 0,
+      left            : 0,
+      right           : 0,
+      bottom          : 0,
+      backgroundColor : 'rgba(117, 117, 117, 0.75)'
+      },
+      content : {
+        borderRadius: '4px',
+        bottom: 'auto',
+        minHeight: '10rem',
+        left: '50%',
+        padding: '2rem',
+        position: 'fixed',
+        right: 'auto',
+        top: '50%',
+        transform: 'translate(-50%,-50%)',
+        minWidth: '10rem',
+        width: '300px',
+        maxWidth: '60rem',
+        backgroundColor : 'rgba(255, 255, 255, 1)',
+        boxShadow : '3px 3px 10px black',
+      }
+    };
     let pinShortUrl = null;
     if (this.props.pin !== undefined) {
       pinShortUrl = this.props.pin.url.replace("http://", "").replace("https://", "").replace("www.", "").split("/")[0];
@@ -109,7 +149,7 @@ class PinItem extends React.Component {
     }
     return (
       <section className="pin-item-container" key={this.props.pin.id+this.props.pin.title}>
-        <div className='picture-block'>
+        <div className='picture-block' onClick={this.openPinDetailModal.bind(this)}>
           <img className='pin-picture' src={this.props.pin.image_url} />
         </div>
         <div className='detail-block'>
@@ -173,6 +213,36 @@ class PinItem extends React.Component {
 
         </Modal>
 
+        <Modal className='PinModal'
+          isOpen={this.state.openPinDetailModal}
+          onRequestClose={this.closePinDetailModal.bind(this)}
+          style={detailPinStyle}>
+          <div className="pin-detail-block">
+            <a className='pin-url' href={this.props.pin.url} target="_blank">
+              <div className='picture-block'>
+                <img className='pin-picture' src={this.props.pin.image_url} />
+              </div>
+            </a>
+            <div className='detail-block'>
+              <div className='pin-title'>
+                {this.props.pin.title}
+              </div>
+              <div className='pin-description'>
+                {this.props.pin.description}
+              </div>
+              <Link to={this.props.pin.user.username}>
+                <img className="profile-pic" src={this.props.pin.user.image_url} />
+              </Link>
+
+              <div className="url-block">
+                <p className='board-title'>{this.props.pin.board.title}</p>
+                <a className='pin-url' href={this.props.pin.url} target="_blank">
+                  {pinShortUrl}
+                </a>
+              </div>
+            </div>
+          </div>
+        </Modal>
       </section>
     );
   }

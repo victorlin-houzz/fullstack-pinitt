@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160831161312) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                                                                                                        null: false
+    t.text     "description"
     t.string   "password_digest",                                                                                                 null: false
     t.string   "session_token",                                                                                                   null: false
     t.string   "image_url",       default: "http://res.cloudinary.com/pinitt/image/upload/v1472660366/default_avatar_jn1sgm.png"

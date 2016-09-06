@@ -6,22 +6,23 @@
   padding-left: 20px;
 }
 
-
 .add-pin-button {
   color: black;
   box-shadow: 1px 1px 1px black;
-  padding: 12.5px 13px;
+  padding: 15px 15px;
   border-radius: 50%;
   border: 0;
   margin: 0;
-  position: absolute;
-  bottom: 60px;
-  right: 55px;
+  position: fixed;
+  right: 3%;
+  bottom: 10%;
   z-index: 1;
 }
 
 .plus-sign {
-  position: relative;
+  position: fixed;
+  right: 3%;
+  bottom: 10%;
   vertical-align: middle;
   width: 30px;
   height: 30px;
@@ -30,9 +31,9 @@
 
 .add-pin-menu {
   display:none;
-  position: absolute;
-  right: 120px;
-  bottom: 60px;
+  position: fixed;
+  right: 5.5%;
+  bottom: 11%;
   font-size: 16px;
   background: #fff;
   border-radius: 5%;
@@ -43,8 +44,8 @@
 .greater {
   display:none;
   position: absolute;
-  right: 107px;
-  bottom: 75px;
+  right: -13px;
+  bottom: 10px;
 }
 
 .accessibilityText {

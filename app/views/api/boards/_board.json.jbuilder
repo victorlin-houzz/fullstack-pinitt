@@ -1,6 +1,6 @@
 json.extract!(
   board,
-  :id, :title, :description, :user_id)
+  :id, :title, :description, :user)
   # if show_all_pins, show all, otherwise only show 3.
   # if show_all_pins
   # 	json.pins do
@@ -24,7 +24,7 @@ json.extract!(
   # 		end
   # 	end
   # end
-  
+
   json.pins do
     board.pins.each do |pin|
       json.set! pin.id do

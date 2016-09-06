@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 		user.password_is?(password) ? user : nil
 	end
 
+	def pin_counts
+		self.pins.length
+	end
+	
 	def password_is? password
 		BCrypt::Password.new(self.password_digest).is_password?(password)
 	end

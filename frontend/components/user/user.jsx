@@ -15,7 +15,7 @@ class User extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.username !== nextProps.params.username) {
+    if (this.props.params.username !== undefined && nextProps.params.username !== undefined && this.props.params.username !== nextProps.params.username && nextProps.params.username !== 'boards') {
       this.props.fetchUser(nextProps.params.username);
     }
     this.user = nextProps.user;
@@ -36,35 +36,39 @@ class User extends React.Component {
     }
     let boardsUrl = `/boards`;
     let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
+    let description = null;
+    if (this.user.description !== undefined) {
+      description = this.user.description;
+    }
     return (
       <section className="user-container">
         <div className='user-profile'>
           <p className='username'>{name}</p>
-          <img className='profile-picture' src={this.user.image_url} />
+          <div className="empty"></div>
+          <p className='user-description'>{description}</p>
         </div>
+        <img className='profile-picture' src={this.user.image_url} />
+        <br/>
         <div className='summary-container'>
           <Link to={boardsUrl}>
             <ul className="text-container">
               <li className='number'>{this.props.boards.length}</li>
               <li>Boards</li>
             </ul>
+          </Link>
             <ul className="text-container">
-              <li className='number'>{this.props.boards.length}</li>
+              <li className='number'>{this.props.user.pin_counts}</li>
               <li>Pins</li>
             </ul>
             <ul className="text-container">
-              <li className='number'>{this.props.boards.length}</li>
-              <li>Likes</li>
-            </ul>
-            <ul className="text-container">
-              <li className='number'>{this.props.boards.length}</li>
+              <li className='number'>{0}</li>
               <li>Followers</li>
             </ul>
             <ul className="text-container">
-              <li className='number'>{this.props.boards.length}</li>
+              <li className='number'>{0}</li>
               <li>Following</li>
             </ul>
-          </Link>
+
         </div>
         <div className='detail-container'>
           {comp}
