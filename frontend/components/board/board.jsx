@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router';
 import BoardItem from '../board/board_item';
 import BoardPins from './board_pins';
 import Modal from 'react-modal';
+import merge from 'lodash/merge';
 
 class Boards extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Boards extends React.Component {
       openEditBoardModal: false,
       title: "",
       description: "",
-      user_id: this.props.currentUser
+      user_id: this.props.currentUser,
+      newPin: []
     };
     this.handleEditBoardSubmit = this.handleEditBoardSubmit.bind(this);
     this.handleDeleteBoardSubmit = this.handleDeleteBoardSubmit.bind(this);
@@ -27,6 +29,14 @@ class Boards extends React.Component {
     if (nextProps.board !== undefined) {
       this.setState({title: nextProps.board.title });
       this.setState({description: nextProps.board.description });
+    }
+    if (nextProps.pin !== undefined) {
+      if (this.state.newPin.length === 0 && nextProps.pin.title !== "") {
+        this.setState({newPin: this.state.newPin.concat([nextProps.pin])});
+      } else if (this.state.newPin.length !== 0 && nextProps.pin.title !== "" &&
+        this.state.newPin[this.state.newPin.length - 1].id !== nextProps.pin.id ) {
+        this.setState({newPin: this.state.newPin.concat([nextProps.pin])});
+      }
     }
   }
 
@@ -104,6 +114,7 @@ class Boards extends React.Component {
     let boardPins = null;
     let pinCount = 0;
     if (this.props.board !== undefined && this.props.board.pins !== undefined) {
+
       boardPins = <BoardPins pins={this.props.board.pins}
         user={this.props.user} currentUser={this.props.currentUser}
         fetchPin={this.props.fetchPin} updatePin={this.props.updatePin}

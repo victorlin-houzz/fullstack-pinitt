@@ -17,7 +17,8 @@ I'm not a religious person. My mom was of Jewish blood and my dad was Protestant
 
 User.create!(username: "emma",password: "password",
 image_url: "http://res.cloudinary.com/pinitt/image/upload/c_thumb,h_300,w_300/v1473100256/emma-watson_mblx3y.jpg",
-description: "")
+description: "I am a British actress, model, and activist.
+Born in Paris and brought up in Oxfordshire, attended the Dragon School as a child and trained as an actress at the Oxford branch of Stagecoach Theatre Arts.")
 
 User.create!(username: "george",password: "password",
 image_url: "http://res.cloudinary.com/pinitt/image/upload/v1473100255/george-clooney_sdydbh.jpg",

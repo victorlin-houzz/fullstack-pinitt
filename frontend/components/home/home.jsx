@@ -36,9 +36,10 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     // Return from new board
     if (this.props.board === undefined && nextProps.board !== undefined) {
-      this.props.router.push(`boards/${nextProps.board.id}`);
+      this.props.router.push(`boards/${nextProps.pin.board.id}`);
 
     // Return from new board
     } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id !== nextProps.board.id) {
@@ -46,9 +47,7 @@ class Home extends React.Component {
 
     // Return from new pin.
     } else if (this.props.board !== undefined && nextProps.board !== undefined && this.props.board.id === nextProps.board.id) {
-      if (nextProps.pin !== undefined && nextProps.pin.board!== undefined && nextProps.pin.board.id === this.props.board.id) {
-        this.props.router.push(`boards/${this.props.board.id}`);
-      }
+
     }
   }
 
@@ -177,7 +176,7 @@ class Home extends React.Component {
 	}
 
   render() {
-    let plusUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472664493/plus_mhdary.png';
+    let plusUrl = 'http://res.cloudinary.com/pinitt/image/upload/c_scale,w_30/v1473185954/plus_lcbmin.png';
     let greaterUrl = 'http://res.cloudinary.com/pinitt/image/upload/v1472707924/greater_espxnw.png';
     let comp = null;
     if (this.props.location.pathname === "/home/" || this.props.location.pathname === "/") {

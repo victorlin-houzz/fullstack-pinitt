@@ -5,7 +5,9 @@
   width: 100%;
 }
 .PinModal .pin-detail-block {
+  display: block;
   overflow-y: scroll;
+  height: auto;
   max-height: 500px;
 }
 
@@ -23,7 +25,7 @@
 
 .PinModal .pin-title {
   display: block;
-  margin: 5px auto;
+  margin: 15px 0 0 0;
   float:left;
   font-size: 16px;
   font-weight: normal;
@@ -31,7 +33,18 @@
   text-align: left;
 }
 
-.PinModal .profile-pic{
+.PinModal .pin-description {
+  display: block;
+  margin: 5px 0 15px 0;
+  float:left;
+  font-size: 16px;
+  font-weight: normal;
+  width: 100%;
+  text-align: left;
+}
+
+.PinModal .profile-pic {
+  margin: 5px 5px 0 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;

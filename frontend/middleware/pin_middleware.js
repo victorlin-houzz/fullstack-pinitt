@@ -1,4 +1,6 @@
 import PinActions from '../actions/pin_actions';
+import BoardActions from '../actions/board_actions';
+import { hashHistory } from 'react-router';
 
 import { fetchAllPins,
   fetchBoardPins,
@@ -10,7 +12,12 @@ import { fetchAllPins,
 export default ({getState, dispatch}) => next => action => {
   const receiveAllPinsOnSuccess = pins => dispatch(PinActions.receiveAllPins(pins));
   const receiveBoardPinsOnSuccess = pins => dispatch(PinActions.receiveBoardPins(pins));
-  const receivePinWithCreateOnSuccess = pin => dispatch(PinActions.receivePinWithCreate(pin));
+  const receivePinWithCreateOnSuccess = pin => {
+    dispatch(PinActions.receivePinWithCreate(pin));
+    dispatch(BoardActions.fetchBoard(pin.board.id));
+    dispatch(BoardActions.fetchBoards(pin.user.id));
+    hashHistory.push(`boards/${pin.board.id}`);
+  };
   const receivePinWithEditOnSuccess = pin => dispatch(PinActions.receivePinWithEdit(pin));
   const receivePinWithDeleteOnSuccess = id => dispatch(PinActions.receivePinWithDelete(id));
 
@@ -36,7 +43,7 @@ export default ({getState, dispatch}) => next => action => {
       createPin(action.pin, receivePinWithCreateOnSuccess, errorCallback);
       break;
 
-    case PinActions.UPDATE_PIN: 
+    case PinActions.UPDATE_PIN:
       updatePin(action.pin, receivePinWithEditOnSuccess, errorCallback);
       break;
 

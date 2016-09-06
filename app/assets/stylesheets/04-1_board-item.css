@@ -8,11 +8,17 @@
   border: 1px 1px 1px 1px solid #ccc;
   border-radius: 4px;
   text-align: center;
+  cursor: pointer;
 }
 
 .board-item-container:hover {
   background-color: rgb(242,242,242);
 }
+
+.board-item-container:hover .edit-board-button {
+  display: inline;
+}
+
 .pin-picture-background {
   background-color: rgb(230,230,230);
 }
@@ -90,13 +96,11 @@
   background-color: rgb(204,204,204);
 }
 .edit-board-button {
-  display: block;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  height: 25px;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 5px 0 0 0;
-  background-color: rgb(217,217,217);
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
 }

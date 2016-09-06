@@ -125,7 +125,7 @@ class PinItem extends React.Component {
       content : {
         borderRadius: '4px',
         bottom: 'auto',
-        minHeight: '10rem',
+        maxHeight: '90%',
         left: '50%',
         padding: '2rem',
         position: 'fixed',
@@ -134,7 +134,7 @@ class PinItem extends React.Component {
         transform: 'translate(-50%,-50%)',
         minWidth: '10rem',
         width: '300px',
-        maxWidth: '60rem',
+        maxWidth: '40%',
         backgroundColor : 'rgba(255, 255, 255, 1)',
         boxShadow : '3px 3px 10px black',
       }
@@ -145,7 +145,7 @@ class PinItem extends React.Component {
     }
     let editButton = null;
     if (this.props.pin.user.id === this.props.currentUser.id) {
-      editButton = (<button className='edit-board-button' onClick={this.openPinModal.bind(this)} type='button'>Edit</button>);
+      editButton = (<img className='edit-board-button' src='http://res.cloudinary.com/pinitt/image/upload/c_scale,w_50/v1473185168/pencil_x13czz.png' onClick={this.openPinModal.bind(this)} />);
     }
     return (
       <section className="pin-item-container" key={this.props.pin.id+this.props.pin.title}>

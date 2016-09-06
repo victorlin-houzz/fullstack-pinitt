@@ -1,13 +1,12 @@
 .user-container {
   display: block;
+  margin: 50px 0 0 50px;
 }
 .user-container .user-profile {
   display: block;
   width: 100%;
   font-size: 50px;
-  margin: 50px 0 0 0;
   color: rgb(74,74,74);
-  margin-left: 50px;
 }
 
 .user-profile .username{
