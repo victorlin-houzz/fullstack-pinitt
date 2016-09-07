@@ -9,6 +9,9 @@ class Api::PinsController < ApplicationController
       @pins = Pin.where(board_id: params[:board_id])
     elsif params[:user_id]
       @pins = Pin.where(user_id: params[:user_id])
+    elsif params[:keyword]
+      like_keyword = "%#{params[:keyword]}%"
+      @pins = Pin.where("TITLE LIKE ? OR DESCRIPTION LIKE ?", like_keyword, like_keyword)
     else
       @pins = Pin.all
     end

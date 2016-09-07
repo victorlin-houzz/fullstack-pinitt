@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Follow.destroy_all
 Pin.destroy_all
 Board.destroy_all
 User.destroy_all
@@ -183,3 +185,11 @@ Pin.create!(title: "Laser Projected Virtual Keyboard", description: "Cool Gadget
 Pin.create!(title: "This Electric Skateboard Can Dominate Any Terrain", description: "In the works for seven years, the Scarpar is a one-man vehicle built to conquer any terrain. Why did it take so long, and will it shake up...", image_url: "https://s-media-cache-ak0.pinimg.com/564x/5a/5c/3f/5a5c3ff8cad3322a8cc6b22eea7abd13.jpg", url: "http://mashable.com/2013/07/17/scarpar/#CzhwYylhUGqn", user_id: 7, board_id: 9)
 Pin.create!(title: "Zero Personal Helicopter", description: "Zero Personal Helicopter", image_url: "https://s-media-cache-ak0.pinimg.com/564x/79/a0/03/79a00396451d7fe283ddba85037ffb0b.jpg", url: "http://www.arch2o.com/zero-personal-helicopter-hector-del-amo/", user_id: 7, board_id: 9)
 Pin.create!(title: "A $30,000 WATERBED THAT VIBRATES WITH MUSIC", description: "A $30,000 WATERBED THAT VIBRATES WITH MUSIC", image_url: "https://s-media-cache-ak0.pinimg.com/564x/dd/09/00/dd0900c317de9f4f0b6ccb34a8e4ef70.jpg", url: "http://www.wired.com/2014/02/tranquility-pod/", user_id: 7, board_id: 9)
+
+Follow.create!(followee_id: 2, follower_id: 1);
+Follow.create!(followee_id: 3, follower_id: 1);
+Follow.create!(followee_id: 4, follower_id: 1);
+Follow.create!(followee_id: 5, follower_id: 1);
+Follow.create!(followee_id: 1, follower_id: 6);
+Follow.create!(followee_id: 1, follower_id: 7);
+Follow.create!(followee_id: 1, follower_id: 8);

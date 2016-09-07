@@ -5,13 +5,13 @@ import BoardsContainer from '../board/boards_container';
 class User extends React.Component {
   constructor(props) {
     super(props);
-    this.loggingOut = this.loggingOut.bind(this);
     this.isOwnPage = false;
     if (this.props.currentUser.id === this.props.params.userId) {
       this.isOwnPage = true;
     }
     this.user = this.props.user;
     this.props.fetchUser(this.props.params.username);
+    this.toggleFollowing = this.toggleFollowing.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,8 +21,12 @@ class User extends React.Component {
     this.user = nextProps.user;
   }
 
-  loggingOut (e) {
-    this.props.logout();
+  toggleFollowing(e, followButtonClass) {
+    if (followButtonClass === "unfollowed follow-button") {
+      this.props.followUser(this.user.id);
+    } else {
+      this.props.unfollowUser(this.user.id);
+    }
   }
 
   render() {
@@ -37,6 +41,20 @@ class User extends React.Component {
     let boardsUrl = `/boards`;
     let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
     let description = null;
+    let followButton = null;
+    let followText = "Unfollowed";
+    if (this.user !== undefined && this.user.id !== this.props.currentUser.id) {
+      let followButtonClass = 'unfollowed follow-button';
+      for (var i = 0; i < this.user.followers.length; i++) {
+        if (this.user.followers[i].id === this.props.currentUser.id) {
+            followButtonClass = 'following follow-button';
+            followText = "Following";
+        }
+      }
+
+      followButton = (<div className={followButtonClass}
+        onClick={(e) => this.toggleFollowing(e,followButtonClass)}>{followText}</div>);
+    }
     if (this.user.description !== undefined) {
       description = this.user.description;
     }
@@ -47,7 +65,8 @@ class User extends React.Component {
           <div className="empty"></div>
           <p className='user-description'>{description}</p>
         </div>
-        <img className='profile-picture' src={this.user.image_url} />
+          <img className='profile-picture' src={this.user.image_url} />
+        {followButton}
         <br/>
         <div className='summary-container'>
           <Link to={boardsUrl}>
@@ -57,15 +76,15 @@ class User extends React.Component {
             </ul>
           </Link>
             <ul className="text-container">
-              <li className='number'>{this.props.user.pin_counts}</li>
+              <li className='number'>{this.user.pin_counts}</li>
               <li>Pins</li>
             </ul>
             <ul className="text-container">
-              <li className='number'>{0}</li>
+              <li className='number'>{this.user.followers.length}</li>
               <li>Followers</li>
             </ul>
             <ul className="text-container">
-              <li className='number'>{0}</li>
+              <li className='number'>{this.user.followees.length}</li>
               <li>Following</li>
             </ul>
 

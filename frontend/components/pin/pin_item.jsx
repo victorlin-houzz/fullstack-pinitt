@@ -144,7 +144,7 @@ class PinItem extends React.Component {
       pinShortUrl = this.props.pin.url.replace("http://", "").replace("https://", "").replace("www.", "").split("/")[0];
     }
     let editButton = null;
-    if (this.props.pin.user.id === this.props.currentUser.id) {
+    if (this.props.canEditPin === true && this.props.pin.user.id === this.props.currentUser.id) {
       editButton = (<img className='edit-board-button' src='http://res.cloudinary.com/pinitt/image/upload/c_scale,w_50/v1473185168/pencil_x13czz.png' onClick={this.openPinModal.bind(this)} />);
     }
     return (

@@ -7,7 +7,6 @@ class Pins extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchAllPins();
   }
 
   isEmpty(obj) {

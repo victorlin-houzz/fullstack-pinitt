@@ -37,3 +37,23 @@ export const fetchUser = function(username, success, error){
 		error
 	});
 };
+
+export const followUser = function(userId, success, error){
+	$.ajax({
+		method: 'POST',
+		url: `/api/follow`,
+		data: {user_id: userId},
+		success,
+		error
+	});
+};
+
+export const unfollowUser = function(userId, success, error){
+	$.ajax({
+		method: 'DELETE',
+		url: `/api/follow`,
+		data: {user_id: userId},
+		success,
+		error
+	});
+};

@@ -1,6 +1,7 @@
 const PinActions = {
   FETCH_ALL_PINS: "FETCH_ALL_PINS",
   FETCH_BOARD_PINS: "FETCH_BOARD_PINS",
+  FETCH_SEARCH_PINS: "FETCH_SEARCH_PINS",
   FETCH_PIN: "FETCH_PIN",
   RECEIVE_ALL_PINS: "RECEIVE_ALL_PINS",
   RECEIVE_BOARD_PINS: "RECEIVE_BOARD_PINS",
@@ -20,6 +21,11 @@ const PinActions = {
   fetchBoardPins: boardId => ({
     type: PinActions.FETCH_BOARD_PINS,
     boardId
+  }),
+
+  fetchSearchPins: keyword => ({
+    type: PinActions.FETCH_SEARCH_PINS,
+    keyword
   }),
 
   fetchPin: id => ({

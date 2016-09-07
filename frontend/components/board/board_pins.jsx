@@ -27,7 +27,7 @@ class BoardPins extends React.Component {
     }
     if (!this.isEmpty(this.props.pins)) {
       pins = pinArr.map((pin) => (
-        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin}/>
+        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin} canEditPin={true}/>
       ));
     }
 

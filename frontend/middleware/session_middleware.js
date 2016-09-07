@@ -2,7 +2,7 @@ import SessionActions from '../actions/session_actions';
 import BoardActions from '../actions/board_actions';
 import { hashHistory } from 'react-router';
 
-import { login, signup, logout, fetchUser } from '../util/session_api_util';
+import { login, signup, logout, fetchUser, followUser, unfollowUser } from '../util/session_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
@@ -33,6 +33,14 @@ export default ({getState, dispatch}) => next => action => {
 
     case SessionActions.FETCH_USER:
       fetchUser(action.username, successUserCallback, errorCallback);
+      return next(action);
+
+    case SessionActions.FOLLOW_USER:
+      followUser(action.id, successUserCallback, errorCallback);
+      return next(action);
+
+    case SessionActions.UNFOLLOW_USER:
+      unfollowUser(action.id, successUserCallback, errorCallback);
       return next(action);
 
     default:

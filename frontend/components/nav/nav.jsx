@@ -4,7 +4,11 @@ import { Link, withRouter } from 'react-router';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+			searchWord: ""
+		};
     this.loggingOut = this.loggingOut.bind(this);
+    this.update = this.update.bind(this);
     this.currentUser = this.props.currentUser;
   }
 
@@ -15,18 +19,38 @@ class Nav extends React.Component {
     }
     return true;
   }
+
   componentWillReceiveProps(nextProps) {
     if (!nextProps.currentUser) {
       this.props.router.push("/login");
     }
-    // console.log("life");
-    // console.log(this.props.currentUser);
-    // console.log("-----");
+
   }
+
+  componentDidMount () {
+    $('.search-bar').on('keyup', e => this.onKeyUp(e));
+  }
+
+  onKeyUp(e) {
+    e.preventDefault();
+    if (e.key !== "Enter") {
+      this.setState({searchWord: e.currentTarget.value});
+    } else {
+      $('.search-bar').val('');
+      console.log(this.state.searchWord);
+      this.props.fetchSearchPins(this.state.searchWord);
+      this.setState({searchWord: ""});
+      this.props.router.push('/search');
+    }
+  }
+
   loggingOut (e) {
-    // console.log("logging out");
     this.props.logout();
   }
+
+  update(e){
+		this.setState({searchWord: e.currentTarget.value});
+	}
 
   render() {
     let userUrlPath = `/${this.currentUser.username}`;
@@ -42,7 +66,7 @@ class Nav extends React.Component {
         <div className="search-container all-containers">
           <input className="search-bar"
             type="text"
-            placeholder='Search'/>
+            placeholder='Search' />
         </div>
 
         <div className="profile-container all-containers">

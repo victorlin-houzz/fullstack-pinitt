@@ -10,8 +10,18 @@ export const fetchAllPins = function(success, error) {
 export const fetchBoardPins = function(boardId, success, error) {
 	$.ajax({
 		method: 'GET',
-		url: '/api/pins/index_by_board',
+		url: '/api/pins',
 		data: {board_id: boardId},
+		success,
+		error
+	});
+};
+
+export const fetchSearchPins = function(keyword, success, error) {
+	$.ajax({
+		method: 'GET',
+		url: '/api/pins',
+		data: {keyword: keyword},
 		success,
 		error
 	});

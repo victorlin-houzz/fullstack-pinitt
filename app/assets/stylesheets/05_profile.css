@@ -32,7 +32,31 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.8);
 }
+
+.user-container .follow-button {
+  position: absolute;
+  top: 190px;
+  right: 57px;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.user-container .unfollowed {
+  background-color: red;
+
+}
+
+.user-container .following {
+  background-color: rgb(0, 255, 0);
+
+}
+
 .user-container .summary-container {
   display: block;
   width: 100%;

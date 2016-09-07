@@ -10,6 +10,7 @@ import BoardsContainer from './board/boards_container';
 import BoardContainer from './board/board_container';
 import UserContainer from './user/user_container';
 import SessionActions from '../actions/session_actions';
+import SearchPinContainer from './pin/search_pin_container';
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -57,6 +58,7 @@ class AppRouter extends React.Component{
 
           <Route path="/" component={ HomeContainer }
             onEnter={this._ensureLoggedIn}>
+            <Route path="search" component={ SearchPinContainer } />
             <Route path="pins" component={PinsContainer} />
             <Route path=":username" component={ UserContainer }>
               <Route path="boards" component={ BoardsContainer } />

@@ -14,7 +14,7 @@ const SessionReducer = function(state = _nullUser, action){
       return merge({}, _nullUser, {currentUser});
 
     case SessionActions.RECEIVE_USER: {
-      const newState = merge({}, state, {user: action.user});
+      const newState = merge({}, {currentUser: state.currentUser}, {user: action.user});
       return newState;
     }
 

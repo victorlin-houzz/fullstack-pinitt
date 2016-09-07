@@ -3,6 +3,8 @@ const SessionActions = {
   LOGOUT: "LOGOUT",
   SIGNUP: "SIGNUP",
   FETCH_USER: "FETCH_USER",
+  FOLLOW_USER: "FOLLOW_USER",
+  UNFOLLOW_USER: "UNFOLLOW_USER",
   RECEIVE_USER: "RECEIVE_USER",
   RECEIVE_CURRENT_USER: "RECEIVE_CURRENT_USER",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
@@ -24,6 +26,16 @@ const SessionActions = {
   fetchUser: username => ({
     type: SessionActions.FETCH_USER,
     username
+  }),
+
+  followUser: id => ({
+    type: SessionActions.FOLLOW_USER,
+    id
+  }),
+
+  unfollowUser: id => ({
+    type: SessionActions.UNFOLLOW_USER,
+    id
   }),
 
   receiveCurrentUser: currentUser => ({
