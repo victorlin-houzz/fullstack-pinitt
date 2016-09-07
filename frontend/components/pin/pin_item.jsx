@@ -55,12 +55,14 @@ class PinItem extends React.Component {
     this.setState({
       openPinDetailModal: true
     });
+    $('body').css('overflow-y', 'hidden');
   }
 
   closePinDetailModal() {
     this.setState({
       openPinDetailModal: false
     });
+    $('body').css('overflow-y', 'auto');
   }
 
   update(field){
