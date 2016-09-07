@@ -5,6 +5,7 @@ import { hashHistory } from 'react-router';
 import { fetchAllPins,
   fetchBoardPins,
   fetchSearchPins,
+  fetchUserPins,
   fetchPin,
   createPin,
   updatePin,
@@ -38,6 +39,10 @@ export default ({getState, dispatch}) => next => action => {
 
     case PinActions.FETCH_SEARCH_PINS:
       fetchSearchPins(action.keyword, receiveBoardPinsOnSuccess, errorCallback);
+      return next(action);
+
+    case PinActions.FETCH_USER_PINS:
+      fetchUserPins(action.userId, receiveBoardPinsOnSuccess, errorCallback);
       return next(action);
 
     case PinActions.FETCH_PIN:

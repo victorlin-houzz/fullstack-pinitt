@@ -5,6 +5,7 @@ const PinActions = {
   FETCH_PIN: "FETCH_PIN",
   RECEIVE_ALL_PINS: "RECEIVE_ALL_PINS",
   RECEIVE_BOARD_PINS: "RECEIVE_BOARD_PINS",
+  FETCH_USER_PINS: "FETCH_USER_PINS",
   RECEIVE_PIN_WITH_CREATE: "RECEIVE_PIN_WITH_CREATE",
   RECEIVE_PIN_WITH_EDIT: "RECEIVE_PIN_WITH_EDIT",
   RECEIVE_PIN_WITH_DELETE: "RECEIVE_PIN_WITH_DELETE",
@@ -26,6 +27,11 @@ const PinActions = {
   fetchSearchPins: keyword => ({
     type: PinActions.FETCH_SEARCH_PINS,
     keyword
+  }),
+
+  fetchUserPins: userId => ({
+    type: PinActions.FETCH_USER_PINS,
+    userId
   }),
 
   fetchPin: id => ({

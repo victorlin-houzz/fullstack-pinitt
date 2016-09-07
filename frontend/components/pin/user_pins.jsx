@@ -6,6 +6,10 @@ class UserPins extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchUserPins(this.props.user.id);
+  }
+
   isEmpty(obj) {
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
@@ -27,7 +31,7 @@ class UserPins extends React.Component {
     }
     if (!this.isEmpty(this.props.pins)) {
       pins = pinArr.map((pin) => (
-        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin}/>
+        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} updatePin={this.props.updatePin} deletePin={this.props.deletePin}/>
       ));
     }
 
@@ -39,4 +43,4 @@ class UserPins extends React.Component {
   }
 }
 
-export default UserPins;
+export default withRouter(UserPins);

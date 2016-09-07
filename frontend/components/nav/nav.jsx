@@ -35,12 +35,18 @@ class Nav extends React.Component {
     e.preventDefault();
     if (e.key !== "Enter") {
       this.setState({searchWord: e.currentTarget.value});
-    } else {
-      $('.search-bar').val('');
+
+      // Realtime search part. If don't want that, comment out these 4 lines and comment back the rest in else statement.
       console.log(this.state.searchWord);
       this.props.fetchSearchPins(this.state.searchWord);
       this.setState({searchWord: ""});
       this.props.router.push('/search');
+    } else {
+      // $('.search-bar').val('');
+      // console.log(this.state.searchWord);
+      // this.props.fetchSearchPins(this.state.searchWord);
+      // this.setState({searchWord: ""});
+      // this.props.router.push('/search');
     }
   }
 

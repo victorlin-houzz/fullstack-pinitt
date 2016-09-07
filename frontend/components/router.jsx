@@ -6,6 +6,7 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import PinsContainer from './pin/pins_container';
+import UserPinsContainer from './pin/user_pins_container';
 import BoardsContainer from './board/boards_container';
 import BoardContainer from './board/board_container';
 import UserContainer from './user/user_container';
@@ -62,6 +63,7 @@ class AppRouter extends React.Component{
             <Route path="pins" component={PinsContainer} />
             <Route path=":username" component={ UserContainer }>
               <Route path="boards" component={ BoardsContainer } />
+              <Route path="pins" component={ UserPinsContainer } />
             </Route>
             <Route path="boards/:boardId" component={ BoardContainer } />
           </Route>

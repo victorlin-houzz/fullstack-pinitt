@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import BoardsContainer from '../board/boards_container';
+import UserPinsContainer from '../pin/user_pins_container';
 
 class User extends React.Component {
   constructor(props) {
     super(props);
-    this.isOwnPage = false;
-    if (this.props.currentUser.id === this.props.params.userId) {
-      this.isOwnPage = true;
-    }
+
     this.user = this.props.user;
     this.props.fetchUser(this.props.params.username);
     this.toggleFollowing = this.toggleFollowing.bind(this);
@@ -33,12 +31,17 @@ class User extends React.Component {
     let comp = null;
     if (this.props.location.pathname === `/${this.props.params.username}` || this.props.location.pathname === `/${this.props.params.username}/boards` ) {
       comp = <BoardsContainer />;
+    } else if (this.props.location.pathname === `/${this.props.params.username}/pins` ) {
+      comp = <UserPinsContainer />;
     }
 
     if(!this.user) {
       return (<div></div>);
     }
-    let boardsUrl = `/boards`;
+    let boardsUrl = `${this.user.username}/boards`;
+    let pinsUrl = `${this.user.username}/pins`;
+    let followersUrl = `${this.user.username}/followers`;
+    let followeesUrl = `${this.user.username}/followees`;
     let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
     let description = null;
     let followButton = null;
@@ -69,26 +72,34 @@ class User extends React.Component {
         {followButton}
         <br/>
         <div className='summary-container'>
-          <Link to={boardsUrl}>
-            <ul className="text-container">
-              <li className='number'>{this.props.boards.length}</li>
-              <li>Boards</li>
-            </ul>
-          </Link>
-            <ul className="text-container">
-              <li className='number'>{this.user.pin_counts}</li>
-              <li>Pins</li>
-            </ul>
-            <ul className="text-container">
-              <li className='number'>{this.user.followers.length}</li>
-              <li>Followers</li>
-            </ul>
-            <ul className="text-container">
-              <li className='number'>{this.user.followees.length}</li>
-              <li>Following</li>
-            </ul>
-
+          <div className='summary'>
+            <Link to={boardsUrl}>
+              <ul className="text-container">
+                <li className='number'>{this.props.boards.length}</li>
+                <li>Boards</li>
+              </ul>
+            </Link>
+            <Link to={pinsUrl}>
+              <ul className="text-container">
+                <li className='number'>{this.user.pins.length}</li>
+                <li>Pins</li>
+              </ul>
+            </Link>
+            <Link to={followersUrl}>
+              <ul className="text-container">
+                <li className='number'>{this.user.followers.length}</li>
+                <li>Followers</li>
+              </ul>
+            </Link>
+            <Link to={followeesUrl}>
+              <ul className="text-container">
+                <li className='number'>{this.user.followees.length}</li>
+                <li>Following</li>
+              </ul>
+            </Link>
+          </div>
         </div>
+        <br/>
         <div className='detail-container'>
           {comp}
         </div>

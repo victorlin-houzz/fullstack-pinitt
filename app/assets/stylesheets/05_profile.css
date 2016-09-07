@@ -1,6 +1,7 @@
 .user-container {
   display: block;
   margin: 50px 0 0 50px;
+  width: 100%;
 }
 .user-container .user-profile {
   display: block;
@@ -19,8 +20,7 @@
 }
 .user-profile .user-description {
   font-size: 20px;
-  float: left;
-  padding-right: 300px;
+  max-width: 70%;
 }
 
 .user-container .profile-picture {
@@ -58,25 +58,31 @@
 }
 
 .user-container .summary-container {
-  display: block;
+  display: flex;
   width: 100%;
-  text-align: center;
+  margin-left: 20%;
 }
 
-.user-container .summary-container .text-container {
-  display: inline-block;
+.user-container .summary-container .summary {
+
+}
+
+.user-container .summary-container .summary .text-container {
+  display: block;
+  float: left;
+  height: auto;
   list-style: none;
   margin: 50px 30px;
   color: #555;
   /*color: rgb(234,234,234);*/
 }
 
-.user-container .summary-container .text-container .number {
+.user-container .summary-container .summary .text-container .number {
   font-size: 20px;
   font-weight: bold;
 }
 
 .user-container .detail-container {
-  display: inline-block;
+  display: block;
   float: left;
 }
