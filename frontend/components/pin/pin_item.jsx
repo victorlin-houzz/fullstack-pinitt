@@ -120,7 +120,7 @@ class PinItem extends React.Component {
       left            : 0,
       right           : 0,
       bottom          : 0,
-      backgroundColor : 'rgba(117, 117, 117, 0.75)'
+      backgroundColor : 'rgba(255,255,255, 0.85)'
       },
       content : {
         borderRadius: '4px',
@@ -133,8 +133,8 @@ class PinItem extends React.Component {
         top: '50%',
         transform: 'translate(-50%,-50%)',
         minWidth: '10rem',
-        width: '300px',
-        maxWidth: '40%',
+        width: '600px',
+        maxWidth: '60%',
         backgroundColor : 'rgba(255, 255, 255, 1)',
         boxShadow : '3px 3px 10px black',
       }

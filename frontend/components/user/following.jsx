@@ -7,7 +7,7 @@ class UserPins extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserPins(this.props.user.id);
+
   }
 
   isEmpty(obj) {
@@ -20,24 +20,28 @@ class UserPins extends React.Component {
   }
 
   render() {
-    let pins = "";
-    let pinArr = [];
-    if (this.props.pins === undefined) {
-      return (<div>""</div>);
+    let followees = "";
+    let followerArr = [];
+    if (this.props.user === undefined) {
+      return (<div></div>);
     } else {
-      pinArr = $.map(this.props.pins, (value, index) => {
+
+      followerArr = $.map(this.props.user.followees, (value, index) => {
         return [value];
       });
     }
-    if (!this.isEmpty(this.props.pins)) {
-      pins = pinArr.map((pin) => (
-        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} updatePin={this.props.updatePin} deletePin={this.props.deletePin}/>
+    if (!this.isEmpty(this.props.user.followees)) {
+      followees = followerArr.map((follower) => (
+        <Link to={follower.username}>
+          <img className='user-picture' src={follower.image_url} />
+        </Link>
+
       ));
     }
 
     return (
-      <section className="pins-container">
-        <div className='all-pin-container'>{pins}</div>
+      <section className="followers-container">
+        <div className='all-follower-container'>{followees}</div>
       </section>
     );
   }

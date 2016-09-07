@@ -1,10 +1,19 @@
+.pins-container:before {
+  content: "";
+}
+
 .pins-container {
   background-color: white;
   padding-right: 2%;
   overflow-x: scroll;
   overflow-y: hidden;
 	max-width: 1400px;
-	min-width: 500px;
+  min-width: 500px;
+  width: 100%;
+}
+.pins-container:after {
+  content: "";
+  width: 100%;
 }
 
 .all-pin-container {

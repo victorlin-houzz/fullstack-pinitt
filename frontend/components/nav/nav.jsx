@@ -37,15 +37,15 @@ class Nav extends React.Component {
       this.setState({searchWord: e.currentTarget.value});
 
       // Realtime search part. If don't want that, comment out these 4 lines and comment back the rest in else statement.
-      console.log(this.state.searchWord);
+      // console.log(this.state.searchWord);
       this.props.fetchSearchPins(this.state.searchWord);
-      this.setState({searchWord: ""});
       this.props.router.push('/search');
     } else {
-      // $('.search-bar').val('');
+
+      $('.search-bar').val('');
       // console.log(this.state.searchWord);
       // this.props.fetchSearchPins(this.state.searchWord);
-      // this.setState({searchWord: ""});
+      this.setState({searchWord: ""});
       // this.props.router.push('/search');
     }
   }
@@ -81,7 +81,6 @@ class Nav extends React.Component {
           </Link>
           <button className="logout-button" onClick={(e) => this.loggingOut(e)}>Logout</button>
         </div>
-
       </section>
     );
   }

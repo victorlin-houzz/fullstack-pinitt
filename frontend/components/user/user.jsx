@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import BoardsContainer from '../board/boards_container';
 import UserPinsContainer from '../pin/user_pins_container';
+import FollowersContainer from './followers_container';
+import FollowingContainer from './following_container';
 
 class User extends React.Component {
   constructor(props) {
@@ -17,6 +19,14 @@ class User extends React.Component {
       this.props.fetchUser(nextProps.params.username);
     }
     this.user = nextProps.user;
+    $('.summary').children().children().each((idx, ul) => {
+      $(ul).on("click", (e2) => {
+        $('.summary').children().children().each((idx2, ul2) => {
+          $(ul2).attr('class', 'text-container unchecked');
+        }).bind(this);
+        $(ul).attr('class', 'text-container checked');
+      }).bind(this);
+    });
   }
 
   toggleFollowing(e, followButtonClass) {
@@ -33,6 +43,10 @@ class User extends React.Component {
       comp = <BoardsContainer />;
     } else if (this.props.location.pathname === `/${this.props.params.username}/pins` ) {
       comp = <UserPinsContainer />;
+    } else if (this.props.location.pathname === `/${this.props.params.username}/followers` ) {
+      comp = <FollowersContainer />;
+    } else if (this.props.location.pathname === `/${this.props.params.username}/following` ) {
+      comp = <FollowingContainer />;
     }
 
     if(!this.user) {
@@ -41,7 +55,7 @@ class User extends React.Component {
     let boardsUrl = `${this.user.username}/boards`;
     let pinsUrl = `${this.user.username}/pins`;
     let followersUrl = `${this.user.username}/followers`;
-    let followeesUrl = `${this.user.username}/followees`;
+    let followingUrl = `${this.user.username}/following`;
     let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
     let description = null;
     let followButton = null;
@@ -74,25 +88,25 @@ class User extends React.Component {
         <div className='summary-container'>
           <div className='summary'>
             <Link to={boardsUrl}>
-              <ul className="text-container">
+              <ul className="text-container checked">
                 <li className='number'>{this.props.boards.length}</li>
                 <li>Boards</li>
               </ul>
             </Link>
             <Link to={pinsUrl}>
-              <ul className="text-container">
+              <ul className="text-container unchecked">
                 <li className='number'>{this.user.pins.length}</li>
                 <li>Pins</li>
               </ul>
             </Link>
             <Link to={followersUrl}>
-              <ul className="text-container">
+              <ul className="text-container unchecked">
                 <li className='number'>{this.user.followers.length}</li>
                 <li>Followers</li>
               </ul>
             </Link>
-            <Link to={followeesUrl}>
-              <ul className="text-container">
+            <Link to={followingUrl}>
+              <ul className="text-container unchecked">
                 <li className='number'>{this.user.followees.length}</li>
                 <li>Following</li>
               </ul>
