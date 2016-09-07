@@ -6,10 +6,6 @@ class UserPins extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
-
   isEmpty(obj) {
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
@@ -32,7 +28,7 @@ class UserPins extends React.Component {
     }
     if (!this.isEmpty(this.props.user.followees)) {
       followees = followerArr.map((follower) => (
-        <Link to={follower.username}>
+        <Link key={follower.id+follower.username} to={follower.username}>
           <img className='user-picture' src={follower.image_url} />
         </Link>
 

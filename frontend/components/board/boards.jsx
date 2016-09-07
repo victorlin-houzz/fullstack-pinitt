@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 import BoardItem from '../board/board_item';
 import Modal from 'react-modal';
 
@@ -98,7 +98,7 @@ class Boards extends React.Component {
     }
     if (!this.isEmpty(this.props.boards)) {
       boards = this.props.boards.map((board) => (
-        <BoardItem board={board} pins={board.pins} user={this.props.user} currentUser={this.props.currentUser} fetchBoard={this.props.fetchBoard} updateBoard={this.props.updateBoard} deleteBoard={this.props.deleteBoard}/>
+        <BoardItem key={board.id+board.title} board={board} pins={board.pins} user={this.props.user} currentUser={this.props.currentUser} fetchBoard={this.props.fetchBoard} updateBoard={this.props.updateBoard} deleteBoard={this.props.deleteBoard}/>
       ));
     }
 

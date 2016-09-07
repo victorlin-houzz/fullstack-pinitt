@@ -1,9 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import BoardsContainer from '../board/boards_container';
-import UserPinsContainer from '../pin/user_pins_container';
-import FollowersContainer from './followers_container';
-import FollowingContainer from './following_container';
 
 class User extends React.Component {
   constructor(props) {
@@ -65,15 +61,15 @@ class User extends React.Component {
 
   render() {
     let comp = null;
-    if (this.props.location.pathname === `/${this.props.params.username}` || this.props.location.pathname === `/${this.props.params.username}/boards` ) {
-      comp = <BoardsContainer />;
-    } else if (this.props.location.pathname === `/${this.props.params.username}/pins` ) {
-      comp = <UserPinsContainer />;
-    } else if (this.props.location.pathname === `/${this.props.params.username}/followers` ) {
-      comp = <FollowersContainer />;
-    } else if (this.props.location.pathname === `/${this.props.params.username}/following` ) {
-      comp = <FollowingContainer />;
-    }
+    // if (this.props.location.pathname === `/${this.props.params.username}` || this.props.location.pathname === `/${this.props.params.username}/boards` ) {
+    //   comp = <BoardsContainer />;
+    // } else if (this.props.location.pathname === `/${this.props.params.username}/pins` ) {
+    //   comp = <UserPinsContainer />;
+    // } else if (this.props.location.pathname === `/${this.props.params.username}/followers` ) {
+    //   comp = <FollowersContainer />;
+    // } else if (this.props.location.pathname === `/${this.props.params.username}/following` ) {
+    //   comp = <FollowingContainer />;
+    // }
 
     if(!this.user) {
       return (<div></div>);
@@ -141,7 +137,7 @@ class User extends React.Component {
         </div>
         <br/>
         <div className='detail-container'>
-          {comp}
+          {this.props.children}
         </div>
       </section>
     );

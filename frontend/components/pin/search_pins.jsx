@@ -22,7 +22,7 @@ class Pins extends React.Component {
     let pins = "";
     if (!this.isEmpty(this.props.pins)) {
       pins = this.props.pins.map((pin) => (
-        <PinItem pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin} canEditPin={false}/>
+        <PinItem key={pin.id+pin.title} pin={pin} user={this.props.user} currentUser={this.props.currentUser} fetchPin={this.props.fetchPin} updatePin={this.props.updatePin} deletePin={this.props.deletePin} canEditPin={false}/>
       ));
     }
 

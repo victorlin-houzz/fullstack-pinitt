@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import PinActions from '../../actions/pin_actions';
 import UserPins from './user_pins';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return (
     { currentUser: state.session.currentUser,
     user: state.session.user,

@@ -51,20 +51,16 @@ class AppRouter extends React.Component{
         <Route path="/" component={ App } >
           <IndexRoute component={ HomeContainer }
             onEnter={this._ensureLoggedIn}/>
-
           <Route path="/login" component={ SessionFormContainer }
             onEnter={this._redirectIfLoggedIn}/>
-
           <Route path="/join" component={ SessionFormContainer }
             onEnter={this._redirectIfLoggedIn}/>
-
-
-
           <Route path="/" component={ HomeContainer }
             onEnter={this._ensureLoggedIn}>
             <Route path="search" component={ SearchPinContainer } />
             <Route path="pins" component={PinsContainer} />
             <Route path=":username" component={ UserContainer }>
+              <IndexRoute component={ BoardsContainer } />
               <Route path="boards" component={ BoardsContainer } />
               <Route path="pins" component={ UserPinsContainer } />
               <Route path="followers" component={ FollowersContainer } />

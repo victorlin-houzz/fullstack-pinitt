@@ -241,7 +241,7 @@ class Home extends React.Component {
     let boardList = null;
     if ( this.props.boards !== undefined && Object.keys(this.props.boards).length !== 0) {
       boardList = Object.keys(this.props.boards).map( (boardKey, idx) => {
-        return (<option value={this.props.boards[boardKey].id}>{this.props.boards[boardKey].title}</option>);
+        return (<option key={boardKey} value={this.props.boards[boardKey].id}>{this.props.boards[boardKey].title}</option>);
       });
     }
 
