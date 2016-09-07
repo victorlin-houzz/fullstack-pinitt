@@ -20,6 +20,32 @@ class User extends React.Component {
     }
     this.user = nextProps.user;
     $('.summary').children().children().each((idx, ul) => {
+
+      if (nextProps.location.pathname === `/${nextProps.params.username}` || nextProps.location.pathname === `/${nextProps.params.username}/boards` ) {
+        if (idx === 0) {
+          $(ul).attr('class', 'text-container checked');
+        } else {
+          $(ul).attr('class', 'text-container unchecked');
+        }
+      } else if (nextProps.location.pathname === `/${nextProps.params.username}/pins` ) {
+        if (idx === 1) {
+          $(ul).attr('class', 'text-container checked');
+        } else {
+          $(ul).attr('class', 'text-container unchecked');
+        }
+      } else if (nextProps.location.pathname === `/${nextProps.params.username}/followers` ) {
+        if (idx === 2) {
+          $(ul).attr('class', 'text-container checked');
+        } else {
+          $(ul).attr('class', 'text-container unchecked');
+        }
+      } else if (nextProps.location.pathname === `/${nextProps.params.username}/following` ) {
+        if (idx === 3) {
+          $(ul).attr('class', 'text-container checked');
+        } else {
+          $(ul).attr('class', 'text-container unchecked');
+        }
+      }
       $(ul).on("click", (e2) => {
         $('.summary').children().children().each((idx2, ul2) => {
           $(ul2).attr('class', 'text-container unchecked');

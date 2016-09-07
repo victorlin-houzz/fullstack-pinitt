@@ -48,9 +48,6 @@ description: "I am an American actress.
 Since 2012, gained wide public recognition for starring in
 the ABC drama Scandal, a Shonda Rhimes series in which as Olivia Pope.")
 
-
-
-
 Board.create!(title: "Awesome Food", description: "Yum yum yum...", user_id: 1)
 Board.create!(title: "Travel", description: "Let's go somewhere!", user_id: 1)
 Board.create!(title: "Cute!", description: "Pets in the door.", user_id: 2)
@@ -193,3 +190,17 @@ Follow.create!(followee_id: 5, follower_id: 1);
 Follow.create!(followee_id: 1, follower_id: 6);
 Follow.create!(followee_id: 1, follower_id: 7);
 Follow.create!(followee_id: 1, follower_id: 8);
+
+Follow.create!(followee_id: 1, follower_id: 2);
+Follow.create!(followee_id: 3, follower_id: 2);
+Follow.create!(followee_id: 4, follower_id: 2);
+Follow.create!(followee_id: 2, follower_id: 5);
+Follow.create!(followee_id: 2, follower_id: 6);
+Follow.create!(followee_id: 2, follower_id: 7);
+Follow.create!(followee_id: 2, follower_id: 8);
+
+Follow.create!(followee_id: 6, follower_id: 3);
+Follow.create!(followee_id: 7, follower_id: 3);
+Follow.create!(followee_id: 1, follower_id: 3);
+Follow.create!(followee_id: 3, follower_id: 6);
+Follow.create!(followee_id: 3, follower_id: 8);
