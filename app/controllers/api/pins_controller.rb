@@ -10,8 +10,8 @@ class Api::PinsController < ApplicationController
     elsif params[:user_id]
       @pins = Pin.where(user_id: params[:user_id])
     elsif params[:keyword]
-      like_keyword = "%#{params[:keyword]}%"
-      @pins = Pin.where("TITLE LIKE ? OR DESCRIPTION LIKE ?", like_keyword, like_keyword)
+      like_keyword = "%#{params[:keyword]}%".downcase
+      @pins = Pin.where("LOWER(TITLE) LIKE ? OR LOWER(DESCRIPTION) LIKE ?", like_keyword, like_keyword)
     else
       @pins = Pin.all.order("created_at ASC").page(params[:page]).per(10)
       # @pins = @pins.where("created_at < ?", params[:max_created_at]) if params[:max_created_at]
