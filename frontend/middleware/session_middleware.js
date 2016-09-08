@@ -24,7 +24,7 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
 
     case SessionActions.LOGOUT:
-      logout(() => console.log('logging out...'));
+      logout(() => {});
       return next(action);
 
     case SessionActions.SIGNUP:

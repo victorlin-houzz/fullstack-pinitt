@@ -78,7 +78,6 @@ class User extends React.Component {
     let pinsUrl = `${this.user.username}/pins`;
     let followersUrl = `${this.user.username}/followers`;
     let followingUrl = `${this.user.username}/following`;
-    let name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
     let description = null;
     let followButton = null;
     let followText = "Unfollowed";
@@ -100,7 +99,7 @@ class User extends React.Component {
     return (
       <section className="user-container">
         <div className='user-profile'>
-          <p className='username'>{name}</p>
+          <p className='username'>{this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1)}</p>
           <div className="empty"></div>
           <p className='user-description'>{description}</p>
         </div>
