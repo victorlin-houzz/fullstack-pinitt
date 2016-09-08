@@ -1,19 +1,22 @@
 # Pinitt
 
-[Live site][pinitt]
+[Live site][pinitt] or [pinitt-heroku]
 
-[pinitt]: http://www.pinitt.co
+[pinitt]: http://www.pinitt.us
+[pinitt-heroku]: http://pinitt.herokuapp.com
 
-## Minimum Viable Product
+## Features
 
-Pinitt is a web application inspired by Pinterest built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+Pinitt is a web application inspired by Pinterest built using Ruby on Rails and React/Redux. This app satisfies the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
-- [ ] Hosting on Heroku
+- [ ] Hosted on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] Discover feed on home page
 - [ ] Profile
 - [ ] Boards and Pins
-- [ ] Follows (followers/followings users)
+- [ ] Follows (followers/following users)
+- [ ] Infinite Scroll
+- [ ] Realtime Search
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -32,7 +35,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days, W8 Tues-Wed)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
@@ -52,7 +55,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 - [ ] Create (empty) `PinsContainer`
 - [ ] Seed users
 
-### Phase 2: Pins Model, API, and components (2 days, W8 Thurs-Fri)
+### Phase 2: Pins Model, API, and components (2 days)
 
 **Objective:** Pins can be created, read, edited and destroyed through
 the API.
@@ -67,11 +70,12 @@ the API.
 - [ ] `PinDetail`
 - [ ] `NewPinForm`
 - [ ] `NewPin` button always stays at the right-bottom corner
+- [ ] `NewPin` content is scraped from the website that user typed in.
 - [ ] Style pins components
 - [ ] Seed pins
 - [ ] Review phase 2
 
-### Phase 3: Boards (2 days, W9 Mon-Tues)
+### Phase 3: Boards (1 day)
 
 **Objective:** Pins belong to Boards that can be created, read, edited and destroyed through the API.
 
@@ -91,7 +95,7 @@ the API.
 - [ ] Seed boards
 - [ ] Review phase 3
 
-### Phase 4: Follows Model, API, and components. User profile, and Guest DEMO. (1 day, W9 Wed)
+### Phase 4: Follows Model, API, and components. User profile, and Guest DEMO. (1 day)
 
 **Objective:** User can follow/unfollow another user. Also showing followers/followings users.
 
@@ -101,18 +105,25 @@ the API.
 - [ ] Style NavBarContainer/UserContainer/FollowsContainer components
 - [ ] Create Guest Demo.
 
-### Phase 5: - Pagination / infinite scroll for Pins Index (1 day, W9 Thurs)
+### Phase 5: - Infinite scroll for Pins Index. (1 day)
 
 **objective:** Add infinite scroll to Pins Index
 
-- [ ] Paginate Notes Index API to send 20 results at a time
+- [ ] Paginate Pins Index API to send 20 results at a time
 - [ ] Append next set of results when user scrolls and is near bottom
 - [ ] Style scroll components and transitions
 - [ ] Ensure seed data demonstrates infinite scroll
 
+### Phase 6: - Realtime Search. (1 day)
+
+**objective:** Realtime Pins Search through Search Bar.
+
+- [ ] Realtime queries between search bar and backend database.
+- [ ] Search the pins that match the keyword in title or description.
+- [ ] Render search result in realtime.
+
 ### Bonus Features (TBD)
 - [ ] Likes for pins
 - [ ] Comments for pins
-- [ ] Search pins by content
 - [ ] Taggings for pins
 - [ ] Notifications for users

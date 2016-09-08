@@ -1,23 +1,34 @@
 ```json
 {
-  currentUser: {
-    id: 1,
-    username: "app-academy",
-    image_url: "/assets/default_avatar.png"
-  },
-
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    createPin: {errors: ["title can't be blank"]},
-    createBoard: {errors: ["title can't be blank"]}
+  session: {
+    currentUser: {
+      id: 1,
+      username: "app-academy",
+      description: "app-academy",
+      image_url: "/assets/default_avatar.png",
+      pins: [],
+      boards: [],
+      followers: [],
+      following: []
+    },
+  user: {
+    id: 2,
+    username: "ruby",
+    description: "ruby",
+    image_url: "/assets/default_avatar.png",
+    pins: [],
+    boards: [],
+    followers: [],
+    following: []
+  }
   },
 
   boards: {
     1: {
       title: "Funny world",
       description: "is cool",
-      user_id: 1
+      user: {},
+      pins: []
     }
   },
 
@@ -25,8 +36,8 @@
     1: {
       title: "Sample Pin",
       description: "super fun",
-      user_id: 1,
-      board_id: 1,
+      user: {},
+      board: {},
       (Bonus) tags: {
         1: {
           id: 1
@@ -45,18 +56,10 @@
 
   follows: {
     followers: {
-      user: {
-        id: 2,
-        username: "George",
-        image_url: "/assets/default_avatar.png"
-      }
+      user: {}
     },
-    followings: {
-      user: {
-        id: 2,
-        username: "George",
-        image_url: "/assets/default_avatar.png"
-      }
+    following: {
+      user: {}
     }
   },
 
