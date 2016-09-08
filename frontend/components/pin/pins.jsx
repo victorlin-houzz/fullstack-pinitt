@@ -9,7 +9,7 @@ class Pins extends React.Component {
     super(props);
     this.state = {
       page: 1,
-      total_pages: 6
+      total_pages: 12
     };
   }
   componentDidMount() {
@@ -38,14 +38,15 @@ class Pins extends React.Component {
 
   listenForScroll() {
     $(window).off("scroll"); // remove previous listeners
-    let throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    let throttledCallback = _.throttle(this.nextPage.bind(this), 20);
     $(window).on("scroll", throttledCallback);
   }
 
   nextPage() {
     let view = this;
-    if ($(window).scrollTop() > $(document).height() - $(window).height() - 30) {
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 10) {
       if (this.state.page < this.state.total_pages) {
+        console.log(this.state.page);
         this.setState({page: this.state.page + 1});
         this.props.fetchAllPins(this.state.page);
       }
