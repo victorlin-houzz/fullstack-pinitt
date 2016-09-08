@@ -88,6 +88,34 @@
   background: #eee;
 }
 
+.github {
+  color: black;
+  box-shadow: 1px 1px 1px black;
+  padding: 20px 20px;
+  border-radius: 50%;
+  border: 0;
+  margin: 0;
+  position: fixed;
+  right: 2%;
+  bottom: 3%;
+  z-index: 1;
+}
+
+.git-image {
+  position: fixed;
+  right: 2%;
+  bottom: 3%;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.git-image:hover, .git-image:focus, .git-image:active {
+  box-shadow: 0 0 8px rgba(0, 0, 255, 0.8);
+}
+
 .modal-input {
   display: block;
   width: 100%;

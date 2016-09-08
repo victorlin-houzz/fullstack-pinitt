@@ -260,6 +260,11 @@ class Home extends React.Component {
         }} type="button">
           <img src={plusUrl} className='plus-sign' />
         </div>
+        <div className="github">
+          <a target='_blank' href='https://github.com/swissashley/fullstack-pinitt'>
+            <img src='http://res.cloudinary.com/pinitt/image/upload/c_scale,h_30/v1473351158/github-mark_wsyxoo.png' className='git-image' />
+          </a>
+        </div>
         <ul className="add-pin-menu" id="add-pin-menu-id">
           <li onClick={this.openPinModal.bind(this)}>Create a new Pin.</li>
           <li onClick={this.openBoardModal.bind(this)}>Create a new Board.</li>
