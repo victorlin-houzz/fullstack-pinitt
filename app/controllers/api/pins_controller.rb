@@ -13,7 +13,7 @@ class Api::PinsController < ApplicationController
       like_keyword = "%#{params[:keyword]}%"
       @pins = Pin.where("TITLE LIKE ? OR DESCRIPTION LIKE ?", like_keyword, like_keyword)
     else
-      @pins = Pin.all.order("created_at DESC").page(params[:page]).per(10)
+      @pins = Pin.all.order("created_at ASC").page(params[:page]).per(10)
       # @pins = @pins.where("created_at < ?", params[:max_created_at]) if params[:max_created_at]
       # @pins = @pins.limit(20)
     end

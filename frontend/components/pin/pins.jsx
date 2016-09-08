@@ -46,7 +46,6 @@ class Pins extends React.Component {
     let view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 10) {
       if (this.state.page < this.state.total_pages) {
-        console.log(this.state.page);
         this.setState({page: this.state.page + 1});
         this.props.fetchAllPins(this.state.page);
       }
