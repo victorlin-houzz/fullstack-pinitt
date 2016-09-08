@@ -122,7 +122,7 @@ class SessionForm extends React.Component {
 					<form
 						className="login-form-box login">
 						<h1 id='web-name'>Pinitt</h1>
-						<p id='slogan'>with shinest ideas</p>
+						<p id='slogan'>with Shiniest Ideas</p>
 						<div className="switch-button">
 							{ this.navLink() }
 						</div>
