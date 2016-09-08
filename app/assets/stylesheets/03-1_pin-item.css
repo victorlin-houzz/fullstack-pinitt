@@ -1,16 +1,21 @@
 .pin-item-container {
-  position: relative;
   display: block;
   float: left;
-  min-width: 236px;
+  width: 248px;
   height: auto;
   padding: 10px;
   border: 1px 1px 1px 1px solid #ccc;
   border-radius: 5px;
   text-align: center;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  column-break-inside: avoid;
+  /*float: left;
+	width: 235px;
+	margin-bottom: 13px;
+	border-radius: 10px;
+	background-color: #fff;
+	color: #333333;
+	font-size: 10px;
+	box-shadow: 0 1px 2px #999999;
+	opacity: 1;*/
 }
 
 .pin-item-container:hover {

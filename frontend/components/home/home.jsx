@@ -247,7 +247,9 @@ class Home extends React.Component {
 
     return (
       <section className="home-container">
-        <NavContainer />
+        <div className='nav-bar'>
+          <NavContainer />
+        </div>
         <div className='home-children'>
           {comp}
         </div>

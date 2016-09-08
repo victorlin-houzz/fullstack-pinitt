@@ -15,8 +15,9 @@ const PinActions = {
   DELETE_PIN: "DELETE_PIN",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
 
-  fetchAllPins: () => ({
-    type: PinActions.FETCH_ALL_PINS
+  fetchAllPins: (page) => ({
+    type: PinActions.FETCH_ALL_PINS,
+    page
   }),
 
   fetchBoardPins: boardId => ({

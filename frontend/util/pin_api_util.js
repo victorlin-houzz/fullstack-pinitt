@@ -1,7 +1,8 @@
-export const fetchAllPins = function(success, error) {
+export const fetchAllPins = function(page ,success, error) {
 	$.ajax({
 		method: 'GET',
 		url: '/api/pins',
+		data: {page: page},
 		success,
 		error
 	});

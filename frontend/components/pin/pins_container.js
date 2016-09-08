@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllPins: () => dispatch(PinActions.fetchAllPins()),
+  fetchAllPins: (page) => dispatch(PinActions.fetchAllPins(page)),
   updatePin: (pin) => dispatch(PinActions.updatePin(pin)),
   deletePin: (id) => dispatch(PinActions.deletePin(id))
 });

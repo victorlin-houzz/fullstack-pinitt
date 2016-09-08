@@ -150,7 +150,7 @@ class PinItem extends React.Component {
       editButton = (<img className='edit-board-button' src='http://res.cloudinary.com/pinitt/image/upload/c_scale,w_50/v1473185168/pencil_x13czz.png' onClick={this.openPinModal.bind(this)} />);
     }
     return (
-      <section className="pin-item-container" key={this.props.pin.id+this.props.pin.title}>
+      <li className="pin-item-container" key={this.props.pin.id+this.props.pin.title}>
         <div className='picture-block' onClick={this.openPinDetailModal.bind(this)}>
           <img className='pin-picture' src={this.props.pin.image_url} />
         </div>
@@ -245,7 +245,7 @@ class PinItem extends React.Component {
             </div>
           </div>
         </Modal>
-      </section>
+      </li>
     );
   }
 }

@@ -13,7 +13,9 @@ const pin = Object.freeze({
 const PinsReducer = function(state = {pins, pin, errors:[]}, action){
   switch(action.type){
     case PinActions.RECEIVE_ALL_PINS: {
-      const newState = {pins: action.pins};
+      const oldPins = state.pins;
+      const newPins = [...oldPins, ...action.pins];
+      const newState = merge({}, state, {pins: newPins});
       return newState;
     }
 
@@ -33,7 +35,6 @@ const PinsReducer = function(state = {pins, pin, errors:[]}, action){
       const newState = merge({}, state, {pins: newPins, pin: action.pin});
       return newState;
     }
-
 
     case PinActions.RECEIVE_PIN_WITH_EDIT: {
       let idx = -1;

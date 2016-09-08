@@ -80,11 +80,20 @@ class User extends React.Component {
     let followingUrl = `${this.user.username}/following`;
     let description = null;
     let followButton = null;
-    let name = this.props.currentUser.username.charAt(0).toUpperCase() + this.props.currentUser.username.slice(1);
+    let name = null;
+    if (this.props.currentUser !== undefined) {
+      this.props.currentUser.username.charAt(0).toUpperCase() + this.props.currentUser.username.slice(1);
+    }
+    let pinCount = this.props.currentUser.pins.length;
+    let followerCount = this.props.currentUser.followers.length;
+    let followeeCount = this.props.currentUser.followees.length;
     let followText = "Unfollowed";
     if (this.user !== undefined && this.user.id !== undefined && this.user.id !== this.props.currentUser.id) {
       let followButtonClass = 'unfollowed follow-button';
       name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
+      pinCount = this.user.pins.length;
+      followerCount = this.user.followers.length;
+      followeeCount = this.user.followees.length;
       for (var i = 0; i < this.user.followers.length; i++) {
         if (this.user.followers[i].id === this.props.currentUser.id) {
             followButtonClass = 'following follow-button';
@@ -118,19 +127,19 @@ class User extends React.Component {
             </Link>
             <Link to={pinsUrl}>
               <ul className="text-container unchecked">
-                <li className='number'>{this.user.pins.length}</li>
+                <li className='number'>{pinCount}</li>
                 <li>Pins</li>
               </ul>
             </Link>
             <Link to={followersUrl}>
               <ul className="text-container unchecked">
-                <li className='number'>{this.user.followers.length}</li>
+                <li className='number'>{followerCount}</li>
                 <li>Followers</li>
               </ul>
             </Link>
             <Link to={followingUrl}>
               <ul className="text-container unchecked">
-                <li className='number'>{this.user.followees.length}</li>
+                <li className='number'>{followeeCount}</li>
                 <li>Following</li>
               </ul>
             </Link>

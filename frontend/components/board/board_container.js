@@ -19,7 +19,6 @@ const mapDispatchToProps = dispatch => ({
   fetchBoard: (boardId) => dispatch(BoardActions.fetchBoard(boardId)),
   updateBoard: board => dispatch(BoardActions.updateBoard(board)),
   deleteBoard: id => dispatch(BoardActions.deleteBoard(id)),
-  fetchAllPins: () => dispatch(PinActions.fetchAllPins()),
   updatePin: (pin) => dispatch(PinActions.updatePin(pin)),
   deletePin: (id) => dispatch(PinActions.deletePin(id))
 });

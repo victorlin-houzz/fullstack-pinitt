@@ -30,7 +30,7 @@ export default ({getState, dispatch}) => next => action => {
   };
   switch(action.type){
     case PinActions.FETCH_ALL_PINS:
-      fetchAllPins(receiveAllPinsOnSuccess, errorCallback);
+      fetchAllPins(action.page, receiveAllPinsOnSuccess, errorCallback);
       return next(action);
 
     case PinActions.FETCH_BOARD_PINS:

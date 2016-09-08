@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import PinItem from '../pin/pin_item';
+import Masonry from 'react-masonry-component';
+
 class BoardPins extends React.Component {
   constructor(props) {
     super(props);
@@ -32,9 +34,13 @@ class BoardPins extends React.Component {
     }
 
     return (
-      <section className="pins-container">
-        <div className='all-pin-container'>{pins}</div>
-      </section>
+      <Masonry
+        className="pins-container"
+        elementType={'ul'}
+        disableImagesLoaded={false}
+        updateOnEachImageLoad={false} >
+        {pins}
+    </Masonry>
     );
   }
 }

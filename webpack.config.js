@@ -9,16 +9,16 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins:[
-    new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress:{
-        warnings: false
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env':{
+    //     'NODE_ENV': JSON.stringify('production')
+    //   }
+    // }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress:{
+    //     warnings: false
+    //   }
+    // })
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -36,6 +36,10 @@ module.exports = {
       {
         test: /\.node$/,
         loader: 'node-loader'
+      },
+      {
+       test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+       loader: 'imports?define=>false&this=>window'
       }
     ]
   },

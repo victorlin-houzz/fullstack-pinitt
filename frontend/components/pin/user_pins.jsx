@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import PinItem from '../pin/pin_item';
+import Masonry from 'react-masonry-component';
+
 class UserPins extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ class UserPins extends React.Component {
     let pins = "";
     let pinArr = [];
     if (this.props.pins === undefined) {
-      return (<div>""</div>);
+      return (<div className="pins-container">""</div>);
     } else {
       pinArr = $.map(this.props.pins, (value, index) => {
         return [value];
@@ -36,9 +38,13 @@ class UserPins extends React.Component {
     }
 
     return (
-      <section className="pins-container">
-        <div className='all-pin-container'>{pins}</div>
-      </section>
+      <Masonry
+        className="pins-container"
+        elementType={'ul'}
+        disableImagesLoaded={false}
+        updateOnEachImageLoad={false} >
+        {pins}
+    </Masonry>
     );
   }
 }
