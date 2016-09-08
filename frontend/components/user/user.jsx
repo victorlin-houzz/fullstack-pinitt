@@ -82,7 +82,7 @@ class User extends React.Component {
     let followButton = null;
     let name = null;
     if (this.props.currentUser !== undefined) {
-      this.props.currentUser.username.charAt(0).toUpperCase() + this.props.currentUser.username.slice(1);
+      name = this.props.currentUser.username.charAt(0).toUpperCase() + this.props.currentUser.username.slice(1);
     }
     let pinCount = this.props.currentUser.pins.length;
     let followerCount = this.props.currentUser.followers.length;
