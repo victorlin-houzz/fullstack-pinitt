@@ -39,12 +39,6 @@ class AppRouter extends React.Component{
     }
   }
 
-  // _requestOneUseronOnEnter (nextState, replace) {
-	// 	store.dispatch(
-  // SessionActions.requestOnePokemon(
-  // nextState.params.id ,nextState.params.pokemon));
-  // };
-
   render(){
     return(
       <Router history={ hashHistory }>
