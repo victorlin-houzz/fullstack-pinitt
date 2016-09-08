@@ -80,9 +80,11 @@ class User extends React.Component {
     let followingUrl = `${this.user.username}/following`;
     let description = null;
     let followButton = null;
+    let name = this.props.currentUser.username.charAt(0).toUpperCase() + this.props.currentUser.username.slice(1);
     let followText = "Unfollowed";
-    if (this.user !== undefined && this.user.id !== this.props.currentUser.id) {
+    if (this.user !== undefined && this.user.id !== undefined && this.user.id !== this.props.currentUser.id) {
       let followButtonClass = 'unfollowed follow-button';
+      name = this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1);
       for (var i = 0; i < this.user.followers.length; i++) {
         if (this.user.followers[i].id === this.props.currentUser.id) {
             followButtonClass = 'following follow-button';
@@ -99,7 +101,7 @@ class User extends React.Component {
     return (
       <section className="user-container">
         <div className='user-profile'>
-          <p className='username'>{this.user.username.charAt(0).toUpperCase() + this.user.username.slice(1)}</p>
+          <p className='username'>{name}</p>
           <div className="empty"></div>
           <p className='user-description'>{description}</p>
         </div>
