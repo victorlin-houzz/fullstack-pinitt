@@ -34,6 +34,7 @@ const PinsReducer = function(state = {pins, pin, errors:[]}, action){
       return newState;
     }
 
+
     case PinActions.RECEIVE_PIN_WITH_EDIT: {
       let idx = -1;
       for (var i = 0; i < state.pins.length; i++) {
