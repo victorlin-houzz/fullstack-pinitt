@@ -107,14 +107,8 @@ class SessionForm extends React.Component {
 		let demo2Button = (this.props.formType === "login") ?
 		<button className="login-buttons demo-button"
 			onClick={(e) => this.demoLogin(e, "emma", "password")}>Emma</button> : null;
-		let description = (this.props.formType === "join") ?
-			<label>
-				<textarea
-					value={this.state.description}
-					onChange={this.update("description")}
-					className="login-input login-description"
-					placeholder="Describe yourself!"></textarea>
-			</label> : null;
+		let description = (this.props.formType === "login") ?
+			'login-input login-description des-hide' : 'login-input login-description des-show';
 
 		return (
 			<main className="session-form">
@@ -150,7 +144,11 @@ class SessionForm extends React.Component {
 									className="login-input password"
 									placeholder="Password" />
 							</label>
-							{description}
+								<textarea
+									value={this.state.description}
+									onChange={this.update("description")}
+									className={description}
+									placeholder="Describe yourself!"></textarea>
 							<div className="login-button-box">
 								<input type="submit"
 									className="login-buttons login-button"

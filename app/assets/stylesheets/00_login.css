@@ -27,19 +27,22 @@
   position: relative;
   box-shadow: 5px 5px 20px black;
   margin: 100px auto;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 153, 0.5);
   color: black;
   z-index: 999;
-  /*transition: height 1s;*/
+  transition: height 1s, background-color 1s ease;
 }
 
 .login {
-  height: 350px;
+  background: rgba(255, 255, 255, 0.5);
+  height: 370px;
 }
 
 .join {
-  height: 430px;
+  background: rgba(235, 217, 198, 0.5);
+  height: 450px;
 }
+
 .switch-button {
   position: absolute;
   top: 20px;
@@ -49,11 +52,11 @@
 }
 
 .login-form {
-  padding: 50px;
+  margin: 20px 40px 0px 40px
 }
 
 input.login-input {
-  width: 100%;
+  width: 85%;
   height: 40px;
   margin: 5px;
   padding: 10px;
@@ -67,7 +70,7 @@ input.login-input {
 
 textarea.login-input.login-description {
   text-align: left;
-  width: 100%;
+  width: 85%;
   margin: 5px;
   padding: 10px;
   color: #555555;
@@ -75,15 +78,17 @@ textarea.login-input.login-description {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: height 1s;
+  transition: all 1s ease .15s;
 }
 
 textarea.login-input.login-description.des-hide{
   height: 0;
+  opacity:0;
 }
 
 textarea.login-input.login-description.des-show {
-  height: 40px;
+  height: 60px;
+  opacity:1;
 }
 
 .error-prompt {
