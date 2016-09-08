@@ -8,7 +8,6 @@
   border: 1px 1px 1px 1px solid #ccc;
   border-radius: 4px;
   text-align: center;
-  cursor: pointer;
 }
 
 .board-item-container:hover {
@@ -28,12 +27,14 @@
   content: "";
   height: 210px;
   cursor: pointer;
+  z-index: 1;
 }
 
 .detail-block {
   width: 100%;
   display: block;
   float: left;
+  cursor:default;
 }
 .pin-picture-block .one-pic {
   vertical-align: middle;
@@ -96,6 +97,7 @@
   background-color: rgb(204,204,204);
 }
 .edit-board-button {
+  border-radius: 30%;
   display: none;
   position: absolute;
   width: 30px;
@@ -103,4 +105,5 @@
   bottom: 10px;
   right: 10px;
   cursor: pointer;
+  z-index: 999;
 }

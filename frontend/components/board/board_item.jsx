@@ -123,23 +123,23 @@ class BoardItem extends React.Component {
     }
     return (
       <section className="board-item-container" key={this.props.board.id+this.props.board.title}>
-        <div className='pin-picture-block'>
-          <Link to={boardUrl}>
-            <div className='one-pic'>
-              <div className='pin-picture-background pin-picture-0'>
-                {imgs[0]}
+        <Link to={boardUrl}>
+          <div className='pin-picture-block'>
+              <div className='one-pic'>
+                <div className='pin-picture-background pin-picture-0'>
+                  {imgs[0]}
+                </div>
               </div>
-            </div>
-            <div className='two-pics'>
-              <div className='pin-picture-background pin-picture-1'>
-                {imgs[1]}
+              <div className='two-pics'>
+                <div className='pin-picture-background pin-picture-1'>
+                  {imgs[1]}
+                </div>
+                <div className='pin-picture-background pin-picture-1'>
+                  {imgs[2]}
+                </div>
               </div>
-              <div className='pin-picture-background pin-picture-1'>
-                {imgs[2]}
-              </div>
-            </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <br/>
         <div className='detail-block'>
           <div className='board-title'>{this.props.board.title}</div>

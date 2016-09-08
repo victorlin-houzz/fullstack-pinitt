@@ -12,6 +12,7 @@ class Pins extends React.Component {
       total_pages: 12
     };
   }
+  
   componentDidMount() {
     this.props.fetchAllPins(this.state.page);
     // this.masonry.on('layoutComplete', this.handleLayoutComplete);

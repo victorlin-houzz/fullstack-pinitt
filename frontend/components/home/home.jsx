@@ -36,7 +36,7 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
+    $('body').css('overflow-y', 'auto');
     // Return from new board
     if (this.props.board === undefined && nextProps.board !== undefined) {
       this.props.router.push(`boards/${nextProps.pin.board.id}`);
