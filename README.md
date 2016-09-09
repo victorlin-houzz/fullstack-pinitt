@@ -15,25 +15,41 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 ![login]
 
 - [ ] Discover feed on home page
+
+# Discover all pins with infinite scroll feature. Load 20 pins per scroll.
 ![feed]
 
 - [ ] Profile
+
+# Display user details: boards, pins, followers and following.
 ![user]
 
 - [ ] Boards and Pins
+
+# Board detail page.
 ![board_pins]
+
+# Pin Detail modal.
 ![pin_details]
 
 - [ ] New Board/Pin
+
+# New Board/Pin Button always stays at the right-bottom corner wherever you are.
 ![new]
+
+# Auto scrape images from the website you type in!
 ![new_pin]
 
 - [ ] Follows (followers/following users)
+
+# Display your followers/following.
 ![followers]
 
 - [ ] Infinite Scroll
 
 - [ ] Realtime Search
+
+# Search the pin(s) its title or description matches the keyword.
 ![search]
 
 [login]: ./docs/screenshots/login.png
