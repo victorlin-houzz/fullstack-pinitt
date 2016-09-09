@@ -49,7 +49,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 
 ### Realtime Search
 - [ ] Search the pin(s) its title or description matches the keyword.
-![search]
+![realtime_search]
 
 [login]: ./docs/screenshots/login.png
 [feed]: ./docs/screenshots/feeds.png
@@ -59,7 +59,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 [new]: ./docs/screenshots/new.png
 [new_pin]: ./docs/screenshots/new_pin.png
 [user_followers]: ./docs/screenshots/user_followers.png
-[search]: ./docs/screenshots/search.png
+[realtime_search]: ./docs/screenshots/realtime_search.png
 
 ## Design Docs
 * [View Wireframes][wireframes]
