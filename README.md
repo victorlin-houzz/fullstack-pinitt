@@ -36,15 +36,15 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 - [ ] Realtime Search
 ![search]
 
-[login]: ./screenshots/login.png
-[feed]: ./screenshots/feeds.png
-[user]: ./screenshots/user.png
-[board_pins]: ./screenshots/board_pins.png
-[pin_details]: ./screenshots/pin_details.png
-[new]: ./screenshots/new.png
-[new_pin]: ./screenshots/new_pin.png
-[followers]: ./screenshots/followers.png
-[search]: ./screenshots/search.png
+[login]: ./docs/screenshots/login.png
+[feed]: ./docs/screenshots/feeds.png
+[user]: ./docs/screenshots/user.png
+[board_pins]: ./docs/screenshots/board_pins.png
+[pin_details]: ./docs/screenshots/pin_details.png
+[new]: ./docs/screenshots/new.png
+[new_pin]: ./docs/screenshots/new_pin.png
+[followers]: ./docs/screenshots/followers.png
+[search]: ./docs/screenshots/search.png
 
 ## Design Docs
 * [View Wireframes][wireframes]
