@@ -10,13 +10,41 @@
 Pinitt is a web application inspired by Pinterest built using Ruby on Rails and React/Redux. This app satisfies the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 - [ ] Hosted on Heroku
+
 - [ ] New account creation, login, and guest/demo login
+![login]
+
 - [ ] Discover feed on home page
+![feed]
+
 - [ ] Profile
+![user]
+
 - [ ] Boards and Pins
+![board_pins]
+![pin_details]
+
+- [ ] New Board/Pin
+![new]
+![new_pin]
+
 - [ ] Follows (followers/following users)
+![followers]
+
 - [ ] Infinite Scroll
+
 - [ ] Realtime Search
+![search]
+
+[login]: ./screenshots/login.png
+[feed]: ./screenshots/feeds.png
+[user]: ./screenshots/user.png
+[board_pins]: ./screenshots/board_pins.png
+[pin_details]: ./screenshots/pin_details.png
+[new]: ./screenshots/new.png
+[new_pin]: ./screenshots/new_pin.png
+[followers]: ./screenshots/followers.png
+[search]: ./screenshots/search.png
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -33,7 +61,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 [api-endpoints]: ./docs/api-endpoints.md
 [schema]: ./docs/schema.md
 
-## Implementation Timeline
+## Implementation Timeline (2 weeks)
 
 ### Phase 1: Backend setup and Front End User Authentication (2 days)
 
