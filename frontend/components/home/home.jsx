@@ -53,20 +53,33 @@ class Home extends React.Component {
 
 	handleNewBoardSubmit(e){
     e.preventDefault();
-    this.createBoard({
-      board: {
-        title: this.state.title,
-        description: this.state.description,
-        user_id: this.props.currentUser.id
-      }
-    });
-    this.closeBoardModal();
+    this.state['errors'] = [];
+    if (this.state.title === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['Title cannot be blank!']);
+    }
+    if (this.state.description === "") {
+      this.state['errors'] = this.state.errors.slice().concat(['Description cannot be blank!']);
+    }
+    if (this.state.errors.length !== 0) {
+      this.closeBoardModal();
+      this.openBoardModal();
+      this.thing.classList.toggle("m-fadeIn");
+      this.thing2.classList.toggle("m-fadeIn");
+    } else {
+      this.createBoard({
+        board: {
+          title: this.state.title,
+          description: this.state.description,
+          user_id: this.props.currentUser.id
+        }
+      });
+      this.closeBoardModal();
+    }
 	}
 
   handleNewPinSubmit(e){
     e.preventDefault();
     this.state['errors'] = [];
-    console.log(this.state);
     if (this.state.pin_url === "") {
       this.state['errors'] = this.state.errors.slice().concat(['URL cannot be blank!']);
     }
@@ -85,6 +98,8 @@ class Home extends React.Component {
     if (this.state.errors.length !== 0) {
       this.closePinModal();
       this.openPinModal();
+      this.thing.classList.toggle("m-fadeIn");
+      this.thing2.classList.toggle("m-fadeIn");
     } else {
       this.createPin({
         pin: {
@@ -160,7 +175,6 @@ class Home extends React.Component {
 
   selectBoard(e) {
     this.setState({pin_board_id: e.currentTarget.value});
-    console.log(this.state);
   }
 
   renderErrors(){
@@ -257,6 +271,7 @@ class Home extends React.Component {
         <div className="add-pin-button" onClick={() => {
           this.thing.classList.toggle("m-fadeIn");
           this.thing2.classList.toggle("m-fadeIn");
+          this.state['errors'] = [];
         }} type="button">
           <img src={plusUrl} className='plus-sign' />
         </div>
@@ -278,7 +293,9 @@ class Home extends React.Component {
           style={newBoardStyle}>
           <section className="modal-form-container">
   					<form	className="modal-form-box">
-
+              <div>
+              { this.renderErrors() }
+              </div>
   						<div className="modal-form">
 								<input
 									type="text"
