@@ -48,6 +48,10 @@ description: "I am an American actress.
 Since 2012, gained wide public recognition for starring in
 the ABC drama Scandal, a Shonda Rhimes series in which as Olivia Pope.")
 
+User.create!(username: 'alex', password: "password",
+image_url: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/001/386/medium/Mattson.jpg?1468537330",
+description: "I am just a normal guy in a/A...")
+
 Board.create!(title: "Awesome Food", description: "Yum yum yum...", user_id: 1)
 Board.create!(title: "Travel", description: "Let's go somewhere!", user_id: 1)
 Board.create!(title: "Cute!", description: "Pets in the door.", user_id: 2)

@@ -9,6 +9,35 @@
 
 Pinitt is a web application inspired by Pinterest built using Ruby on Rails and React/Redux. This app satisfies the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
+### Single Page app
+```jsx
+
+<Router history={ hashHistory }>
+  <Route path="/" component={ App } >
+    <IndexRoute component={ HomeContainer }
+      onEnter={this._ensureLoggedIn}/>
+    <Route path="/login" component={ SessionFormContainer }
+      onEnter={this._redirectIfLoggedIn}/>
+    <Route path="/join" component={ SessionFormContainer }
+      onEnter={this._redirectIfLoggedIn}/>
+    <Route path="/" component={ HomeContainer }
+      onEnter={this._ensureLoggedIn}>
+      <Route path="search" component={ SearchPinContainer } />
+      <Route path="pins" component={PinsContainer} />
+      <Route path=":username" component={ UserContainer }>
+        <IndexRoute component={ BoardsContainer } />
+        <Route path="boards" component={ BoardsContainer } />
+        <Route path="pins" component={ UserPinsContainer } />
+        <Route path="followers" component={ FollowersContainer } />
+        <Route path="following" component={ FollowingContainer } />
+      </Route>
+      <Route path="boards/:boardId" component={ BoardContainer } />
+    </Route>
+  </Route>
+</Router>
+
+```
+
 ### New account creation, login, and guest/demo login
 ![login]
 
