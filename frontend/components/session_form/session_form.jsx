@@ -22,12 +22,12 @@ class SessionForm extends React.Component {
 			$(".login-form-box").attr('class', 'login-form-box login');
 			$(".demo-button").attr('class', 'login-buttons demo-button demo-show');
 			$(".login-description").attr('class', 'login-input login-description des-hide');
-			$(".login-button").attr('class', 'login-buttons login-button signup');
+			$(".login-button").attr('class', 'login-buttons login-button login-login');
 		} else {
 			$(".login-form-box").attr('class', 'login-form-box join');
 			$(".demo-button").attr('class', 'login-buttons demo-button demo-hide');
 			$(".login-description").attr('class', 'login-input login-description des-show');
-			$(".login-button").attr('class', 'login-buttons login-button login');
+			$(".login-button").attr('class', 'login-buttons login-button login-signup');
 		}
 	}
 
@@ -100,13 +100,10 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		let loginFormClass = (this.props.formType === "login") ? "login-form-box login" : "login-form-box join";
 		let loginText = (this.props.formType === "login") ? "Login" : "Sign Up";
-		let demo1Button = (this.props.formType === "login") ?
-		<button className="login-buttons demo-button"
-			onClick={(e) => this.demoLogin(e, "daniel", "password")}>Daniel</button> : null;
-		let demo2Button = (this.props.formType === "login") ?
-		<button className="login-buttons demo-button"
-			onClick={(e) => this.demoLogin(e, "emma", "password")}>Emma</button> : null;
+		let loginClass = (this.props.formType === "login") ? "login-buttons login-button login-login" : "login-buttons login-button login-signup";
+		let demoClass = (this.props.formType === "login") ? "login-buttons demo-button demo-show" : "login-buttons demo-button demo-hide";
 		let description = (this.props.formType === "login") ?
 			'login-input login-description des-hide' : 'login-input login-description des-show';
 
@@ -114,7 +111,7 @@ class SessionForm extends React.Component {
 			<main className="session-form">
 				<section className="login-form-container">
 					<form
-						className="login-form-box login">
+						className={loginFormClass}>
 						<h1 id='web-name'>Pinitt</h1>
 						<p id='slogan'>with Shiniest Ideas</p>
 						<div className="switch-button">
@@ -151,11 +148,13 @@ class SessionForm extends React.Component {
 									placeholder="Describe yourself!"></textarea>
 							<div className="login-button-box">
 								<input type="submit"
-									className="login-buttons login-button"
+									className={loginClass}
 									value={loginText}
 									onClick={this.handleSubmit}/>
-								{demo1Button}
-								{demo2Button}
+								<button className={demoClass}
+									onClick={(e) => this.demoLogin(e, "daniel", "password")}>Daniel</button>
+								<button className={demoClass}
+									onClick={(e) => this.demoLogin(e, "emma", "password")}>Emma</button>
 							</div>
 						</div>
 					</form>

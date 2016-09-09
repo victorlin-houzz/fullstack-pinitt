@@ -152,16 +152,28 @@ div.login-button-box {
 
 input.login-button {
   background-color: rgb(59,89,152);
+  transition: all 1s ease .15s;
 }
 
-input.login-button .login{
+input.login-buttons.login-button.login-login {
   background-color: rgb(59,89,152);
 }
 
-input.login-button .signup{
+input.login-buttons.login-button.login-signup {
   background-color: rgb(189,8,28);
 }
 
-.demo-button {
+button.login-buttons.demo-button {
   background-color: rgb(0, 153, 51);
+  transition: all 1s ease .15s;
+}
+
+button.login-buttons.demo-button.demo-show {
+  height: 50px;
+  opacity:1;
+}
+
+button.login-buttons.demo-button.demo-hide {
+  height: 0;
+  opacity:0;
 }
