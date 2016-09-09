@@ -41,7 +41,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 
 ### Follows (followers/following users)
 - [ ] Display your followers/following.
-![followers]
+![user_followers]
 
 
 ### Infinite Scroll
