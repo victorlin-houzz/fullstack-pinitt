@@ -11,7 +11,7 @@ Pinitt is a web application inspired by Pinterest built using Ruby on Rails and 
 
 ### Single Page App
 ```jsx
-
+ 
 <Router history={ hashHistory }>
   <Route path="/" component={ App } >
     <IndexRoute component={ HomeContainer }
